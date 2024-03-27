@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="./../css/style.css">
+        <link rel="stylesheet" type="text/css" href="./../css/formularios.css">
+        <link rel="stylesheet" type="text/css" href="./../css/agendarCita.css">
+        <script src="./../js/citas.js"></script>
+        <title>Pagina de Inicio</title>
+    </head>
+    <body>
+       
+        <header>
+            <h1>Árbol de Seda</h1>
+            <label for="buttonMenu"></label>
+            <input type="checkbox" id="buttonMenu">
+            
+            <nav class="menu">    
+                <ul>
+                    <li>
+                        <a href="./../html/registro.html">Registro / Inicio de sesión</a>
+                    </li>
+                    <li>
+                        <a href="./../html/agendarCita.html">Agenda de citas</a>
+                    </li>
+                    <li>
+                        <a href="./../html/busquedaMedicos.html">Búsqueda de médicos</a>
+                    </li>
+                    <li>
+                        <a href="./../html/servicios.html">Servicios</a>
+                    </li>
+                    <li>
+                        <a href="./../html/sobreNosotros.html">Sobre nosotros</a>
+                    </li>
+                    <li>
+                        <a href="./../html/infoContacto.html">Contacto</a>
+                    </li>
+                    <li>
+                        <a href="./../html/preguntasFrecuentes.html">Preguntas frecuentes</a>
+                    </li>
+                    <li>
+                        <a href="./../html/politicaDePrivacidad.html">Política de privacidad</a>
+                    </li>
+                </ul>
+            </nav>
+
+        </header>
+
+        <main>
+
+            <div class="content">
+                <div class="form">
+                    <h3>Agendar Cita</h3>
+                    <form id="form" method="post">
+
+                        <div class="date">
+                            <label for="day">Seleccione el dia</label>
+                            <input id="day" type="date" required>
+                        </div>
+
+                        <div class="date">
+                            <label for="time">Seleccione la hora</label>
+                            <input id="time" type="time" min="00:00" max="12:00" required>
+                        </div>
+
+                        <div class="date">
+                            <label for="medic">Seleccione al medico</label>
+                            <input id="medic" type="text" required>
+                        </div>
+
+                        <div class="date">
+                            <label for="specialization">Especializacion</label>
+                            <select name="specialization" id="specialization">
+                                <option value="Cardiologia">Cardiologia</option>
+                                <option value="Odontología">Odontología</option>
+                                <option value="Dermatología">Dermatología</option>
+                                <option value="Optometría">Optometría</option>
+                            </select>
+                        </div>
+
+                        <input id="agendar" type="submit" value="Agendar">
+
+                    </form>
+                </div> 
+                <div class="calendar">
+                    <h3>Calendario de citas</h3>
+                    <h4 id="month">Marzo</h4>
+                    <h4 id="year">2024</h4>
+                    <a class="prev" onclick="loadPrevMonth()">&#10094;</a>
+                    <a class="next" onclick="loadNextMonth()">&#10095;</a>
+                    <table class="tableCalendar">
+                        <thead>
+                            <tr>
+                                <th>Domingo</th>
+                                <th>Lunes</th>
+                                <th>Martes</th>
+                                <th>Miercoles</th>
+                                <th>Juevez</th>
+                                <th>Viernes</th>
+                                <th>Sabado</th>
+                            </tr>
+                        </thead>
+                        <tbody id="days">
+                            <tr>
+                                <td>1</td>
+                                <td>2</td>
+                                <td>3</td>
+                                <td>4</td>
+                                <td>5</td>
+                                <td>6</td>
+                                <td>7</td>
+
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>2</td>
+                                <td>3</td>
+                                <td>4</td>
+                                <td>5</td>
+                                <td>6</td>
+                                <td>7</td>
+
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>2</td>
+                                <td>3</td>
+                                <td>4</td>
+                                <td>5</td>
+                                <td>6</td>
+                                <td>7</td>
+
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>2</td>
+                                <td>3</td>
+                                <td>4</td>
+                                <td>5</td>
+                                <td>6</td>
+                                <td>7</td>
+
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>2</td>
+                                <td>3</td>
+                                <td>4</td>
+                                <td>5</td>
+                                <td>6</td>
+                                <td>7</td>
+
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>2</td>
+                                <td>3</td>
+                                <td>4</td>
+                                <td>5</td>
+                                <td>6</td>
+                                <td>7</td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <input type="checkbox" id="btnOpenModal">
+                <div class="modalContent">
+                    <div class="modal">
+                        <h2>Esto es un ejemplo</h2>
+                        <p>Texto de relleno</p>
+                        <div class="exitModal">
+                            <label for="btnOpenModal">Cerrar</label>
+                        </div>
+                    </div>
+                    <label for="btnOpenModal" id="closeOfFocus"></label>
+                    </div>
+                </div>
+
+            </div>
+            
+        </main>
+
+        <footer>
+            <div class="group1">
+                <div class="box">
+                    <p><a href="index.html">Inicio</a></p>
+                    <p><a href="">Preguntas frecuentes (FAQ)</a></p>
+                    <p><a href="">Política de privacidad y términos de uso</a></p>
+                </div>
+                <div class="box">
+                    <p><a href="./../html/infoContacto.html">Información de contacto</a></p>
+                    <p><a href="./../html/sobreNosotros.html">Sobre nosotros</a></p>
+                </div>
+            </div>
+            <div class="group2">
+                <small>&copy; 2024 <b>FS Group</b> - Todos los derechos reservados</small>
+            </div>
+
+        </footer>
+
+    </body>
+</html>

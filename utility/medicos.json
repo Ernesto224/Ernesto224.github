@@ -1,0 +1,71 @@
+[
+    {
+        "nombre":"Ana Rivera",
+        "especialidad":"odontología",
+        "ubicacion":"Turrialaba",
+        "identificacion":"304560463",
+        "horarioConsualta":"9:50 am a 6:50pm",
+        "telefono":"86-56-15-44",
+        "correo":"AnaRivera@gmail.com",
+        "biografia":"Especialista en odontología general y estética. Más de 10 años de experiencia. Miembro de la Asociación Dental Americana.",
+        "resenias":{
+            "cliente":{
+                "correo":"miguel@gmail.com",
+                "escribe":"Excelente medico muy profecional",
+                "calificacion":5
+            }
+        }
+    },
+    {
+        "nombre": "Elena Martínez",
+        "especialidad": "Dermatología",
+        "ubicacion": "San José",
+        "identificacion": "254879231",
+        "horarioConsulta": "10:00 am a 7:00pm",
+        "telefono": "87-45-23-12",
+        "correo": "ElenaMartinez@gmail.com",
+        "biografia": "Especialista en dermatología clínica y estética. Experta en el tratamiento de acné, eczema, psoriasis y cáncer de piel. Miembro de la Academia Española de Dermatología y Venereología.",
+        "resenias": {
+          "cliente": {
+            "correo": "maria@gmail.com",
+            "escribe": "La Dra. Martínez es una excelente profesional, me ha ayudado mucho con mi problema de acné.",
+            "calificacion": 5
+          }
+        }
+    },
+    {
+        "nombre": "Carlos García",
+        "especialidad": "Cardiología",
+        "ubicacion": "Turrialba",
+        "identificacion": "123456789",
+        "horarioConsulta": "8:00 am a 12:00pm",
+        "telefono": "88-32-16-78",
+        "correo": "CarlosGarcia@gmail.com",
+        "biografia": "Especialista en cardiología clínica e intervencionista. Experto en el diagnóstico y tratamiento de enfermedades cardíacas. Miembro del Colegio Americano de Cardiología.",
+        "resenias": {
+        "cliente": {
+            "correo": "pedro@gmail.com",
+            "escribe": "El Dr. García es un médico muy atento y profesional, me ha ayudado mucho con mi problema cardíaco.",
+            "calificacion": 5
+        }
+        }
+    },
+    {
+        "nombre": "Sofía Pérez",
+        "especialidad": "Optometría",
+        "ubicacion": "San José",
+        "identificacion": "987654321",
+        "horarioConsulta": "2:00 pm a 8:00pm",
+        "telefono": "89-21-45-67",
+        "correo": "SofiaPerez@gmail.com",
+        "biografia": "Especialista en optometría y terapia visual. Experta en la evaluación y corrección de la visión. Miembro de la Asociación Americana de Optometría.",
+        "resenias": {
+        "cliente": {
+            "correo": "ana@gmail.com",
+            "escribe": "La Dra. Pérez es una excelente profesional, me ha ayudado mucho con mi problema de visión.",
+            "calificacion": 5
+        }
+        }
+    }
+    
+]
