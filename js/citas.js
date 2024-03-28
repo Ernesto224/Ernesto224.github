@@ -13,7 +13,7 @@ function loadNextMonth(){
     getDaysCalendar(dateNow.getFullYear(),nowMonth);
 }//end function
 
-function loadPrevMonth(){
+function loadPrevMonth(){//pasar a funciones flecha
     console.log(nowMonth);
     nowMonth = (nowMonth + months.length - 1) % months.length;
     getDaysCalendar(dateNow.getFullYear(),nowMonth);

@@ -4,21 +4,24 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="css/style.css">
-        <link rel="stylesheet" type="text/css" href="css/indexStyle.css">
         <script src="js/main.js"></script>
         <title>Pagina de Inicio</title>
     </head>
     <body>
        
         <header>
+
             <h1>Árbol de Seda</h1>
-            <label for="buttonMenu"></label>
-            <input type="checkbox" id="buttonMenu">
+            <label id="etiquetaBotonMenu" for="botonMenu"><img src="img/menu.png" alt="menu"></label>
+            <input type="checkbox" id="botonMenu">
             
             <nav class="menu">    
                 <ul>
                     <li>
-                        <a href="html/registro.html">Registro / Inicio de sesión</a>
+                        <a href="index.html">Inicio</a>
+                    </li>
+                    <li>
+                        <a href="html/inicioSession.html">Inicio de sesión</a>
                     </li>
                     <li>
                         <a href="html/agendarCita.html">Agenda de citas</a>
@@ -48,26 +51,26 @@
 
         <main>
 
-            <div class="slideConteiner">
+            <div class="contenidoCarrusel">
 
-                <div class="slideImage">
+                <div class="imagenCarrusel">
                     <img src="img/cardiologia.png" alt="">
-                    <div class="slideTextImage">Cardiologia</div>
+                    <div class="textoImagenCarrusel">Cardiologia</div>
                 </div>
 
-                <div class="slideImage">
+                <div class="imagenCarrusel">
                     <img src="img/odontologia.png" alt="">
-                    <div class="slideTextImage">Odontología</div>
+                    <div class="textoImagenCarrusel">Odontología</div>
                 </div>
 
-                <div class="slideImage">
+                <div class="imagenCarrusel">
                     <img src="img/dermatologia.jpg" alt="">
-                    <div class="slideTextImage">Dermatología</div>
+                    <div class="textoImagenCarrusel">Dermatología</div>
                 </div>
 
-                <div class="slideImage">
+                <div class="imagenCarrusel">
                     <img src="img/optometria.jpg" alt="">
-                    <div class="slideTextImage">Optometría</div>
+                    <div class="textoImagenCarrusel">Optometría</div>
                 </div>
 
                 <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
@@ -75,52 +78,43 @@
 
             </div>
 
-            <div class="content">
-                <div class="article">
+            <div class="contenido">
+
+                <div class="articulo">
+
                     <h2>Sistema de Citas Médicas de la Clínica Árbol de Seda</h2>
-                    <p>El sistema de citas médicas de la Clínica Árbol de Seda es una herramienta fácil de usar que le permite reservar 
-                        citas con nuestros médicos de forma rápida y cómoda.</p>
+                    <p>El sistema de citas médicas de la Clínica Árbol de Seda es una herramienta fácil de usar que 
+                        le permite reservar citas con nuestros médicos de forma rápida y cómoda.
+                    </p>
+
                     <h3>Funcionalidades</h3>
-                    <div class="pagesFuncion">
-                        <h4>Registro/Inicio de sesión</h4>
-                        <br>
-                        <p>Cree una cuenta con su nombre, dirección de correo electrónico y contraseña.
-                            <br>
-                            Inicie sesión en su cuenta para acceder a sus citas.
-                            </p>
-                    </div>
-                    <div class="pagesFuncion">
-                        <h4>Búsqueda de médicos</h4>
-                        <br>
-                        <p>Utilice filtros para encontrar médicos por especialidad, nombre del médico entre otros.</p>
-                    </div>
-                    <div class="pagesFuncion">
-                        <h4>Agenda de citas</h4>
-                        <p>Vea la disponibilidad de los médicos en un calendario interactivo.
-                            Seleccione la fecha y hora que mejor le convengan.
-                            Confirme su cita o cancelela.</p>
-                    </div>
-                    <div class="pagesFuncion">
-                        <h4>Búsqueda de citas</h4>
-                        <p>Vea sus próximas citas y su historial médico.</p>
-                    </div>
+                    <p><b>Registro/Inicio de sesión</b>:Cree una cuenta con su nombre, dirección de correo electrónico
+                        y contraseña, tambien inicie sesión en su cuenta para acceder a sus citas. <br>
+                        <b>Búsqueda de médicos</b>:Utilice filtros para encontrar médicos por especialidad, nombre del 
+                        médico entre otros. <br>
+                        <b>Agenda de citas</b>:Vea la disponibilidad de los médicos en un calendario interactivo.
+                        Seleccione la fecha y hora que mejor le convengan, ademas confirme su cita o cancelela. <br>
+                        <b>Búsqueda de citas</b>:Vea sus próximas citas y su historial médico. <br>
+                    </p>
+
                     <h3>Cómo usar el sistema</h3>
-                    <div class="pagesInstruction">
-                        <p>Regístrese o inicie sesión en su cuenta.
-                            Utilice los filtros para encontrar el médico que necesita.
-                            Seleccione la fecha y hora que mejor le convengan.
-                            Confirme su cita.</p>
-                    </div>
-                    
+                    <p>Regístrese o inicie sesión en su cuenta.
+                        Utilice los filtros para encontrar el médico que necesita.
+                        Seleccione la fecha y hora que mejor le convengan.
+                        Confirme su cita.
+                    </p>
+
                 </div>
+
             </div>
 
-            <div class="animationContent">
+            <div class="contenidoAnimacion">
                 
-                <div class="animationImage">
+                <div class="imagenAnimacion">
                     <img src="img/corazon.png" alt="corazon" id="head">
                 </div>
-                <div class="animationImage">
+                
+                <div class="imagenAnimacion">
                     <img src="img/estetoscipio.png" alt="estetoscipio" id="stethoscope">
                 </div>
 
@@ -129,18 +123,24 @@
         </main>
 
         <footer>
-            <div class="group1">
-                <div class="box">
+
+            <div class="grupo1">
+
+                <div class="cajaFooter">
                     <p><a href="index.html">Inicio</a></p>
-                    <p><a href="html/preguntasFrecuentes.html">Preguntas frecuentes (FAQ)</a></p>
+                    <p><a href="html/servicios.html">Servicios</a></p>
+                    <p><a href="html/preguntasFrecuentes.html">Preguntas frecuentes (FAQ)</a></p> 
+                </div>
+
+                <div class="cajaFooter">
+                    <p><a href="html/sobreNosotros.html">Sobre nosotros</a></p>
+                    <p><a href="html/infoContacto.html">Información de contacto</a></p>
                     <p><a href="html/politicaDePrivacidad.html">Política de privacidad y términos de uso</a></p>
                 </div>
-                <div class="box">
-                    <p><a href="html/infoContacto.html">Información de contacto</a></p>
-                    <p><a href="html/sobreNosotros.html">Sobre nosotros</a></p>
-                </div>
+                
             </div>
-            <div class="group2">
+
+            <div class="grupo2">
                 <small>&copy; 2024 <b>FS Group</b> - Todos los derechos reservados</small>
             </div>
 
