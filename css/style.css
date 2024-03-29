@@ -30,8 +30,35 @@ h4{
     color: #31122C;
 }
 
-br{
-    margin: 1.5px;
+h5{
+    text-align: left;
+    font-size: 1.5em;
+    color: #31122C;
+}
+
+.imagenConTitulo{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    margin-bottom: 2%;
+}
+
+.imagenConTitulo img{
+    width: 100%;
+    height: 10em;
+    object-fit: cover;
+    display: block;
+    border: 5px solid #4893BC;
+}
+
+.imagenConTitulo h2{
+    position: absolute; /* Establece el posicionamiento absoluto */
+    top: 50%; /* Coloca el h2 en la mitad superior del contenedor */
+    left: 50%; /* Coloca el h2 en la mitad izquierda del contenedor */
+    transform: translate(-50%, -50%); /* Centra el h2 horizontal y verticalmente */
+    color: #FFFFFF; /* Color del texto */
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
+    padding: 10px; /* Espacio alrededor del texto */
 }
 
 body{
@@ -101,9 +128,10 @@ header label:hover{
 }
 /*fin barra de menu*/
 
-
 main{
     width: 100%;
+    min-height: 67.5vh;
+    display: block;
     background-color: #FFFFFF;
 }
 
@@ -160,10 +188,10 @@ main{
 }
 
 .textoImagenCarrusel{
-    color: #275167;
+    color: #FFFFFF;
     font-size: 2.5em;
     position: relative;
-    background-color: #387292;
+    background-color: #275167;
 }
 /*fin carrusel imagenes*/
 
@@ -234,8 +262,8 @@ main{
 }
 
 .acordion{
-    margin-top:15%; 
-    margin-bottom:15%;
+    margin-top: 5%;
+    margin-bottom: 5%;
     background-color:#FFFFFF;
 }
 
@@ -262,6 +290,7 @@ main{
     transition: all 300ms ease;
     border-radius: 5px;
     background-color: #58B4E7;
+    text-align: justify;
 }
 
 .acordion .contenidoAcordion p{
@@ -276,12 +305,123 @@ main{
     max-height: 600px;
     padding: 15px 0px;
 }
-
 /*fin preguntas frecuentes*/
+
+/*Formularios*/
+.contenedorFormulario{
+    width: 100%;
+    display: flex;
+    padding: 45px;
+    justify-content: center;
+}
+
+.formulario{
+    width: 30%;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: #B1DCF4;
+}
+
+.formulario .campoFormulario{
+    padding: 10px;
+    margin: 8px 0;
+    display: flex;
+    border: 1px solid #7e7e7e;
+    border-radius: 4px;
+    box-sizing: border-box;
+    text-align: left;
+}
+
+.formulario .campoFormulario label{
+    margin: auto;
+    margin-left: 2%;
+}
+
+.formulario .campoFormulario input{
+    width: 40%;
+    margin-right: 2%;
+}
+
+.formulario #formulario #informacionPregunta{
+    resize: none;
+    width: 70%;
+}
+
+.formulario input[type="submit"] {
+    background-color:  #275167;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.formulario input[type="submit"]:hover {
+    background-color: #4893BC;
+}
+
+.formulario .vinculosFormularios{
+    display: flex;
+    margin-top: 2%;
+    justify-content: space-between;
+}
+/*fin formularios*/
+
+/*Citas*/
+.cotenedorTarjetas{
+    width: 100%;
+    display: block;
+}
+
+.tarjetas{
+    display: flex;
+    flex-wrap: wrap; /* Hace que las tarjetas se envuelvan cuando no haya suficiente espacio */
+    justify-content: center;
+}
+
+.tarjeta{
+    width: calc(20% - 40px); /* Ajusta el ancho de las tarjetas para que quepan tres en una fila */
+    margin: 20px;
+    border-radius: 5px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 500ms ease;
+    background-color: #4893BC;
+}
+
+.tarjeta:hover{
+    transform: translateY(-3%);
+    background-color: #58B4E7;
+}
+
+.tarjeta img{
+    width: 100%;
+    height: 210px;
+}
+
+.tarjeta .textoTarjeta{
+    padding: 5px 5px;
+    text-align: justify;
+}
+/*fin citas*/
+
+/*Buscar Medico*/
+.contenedorResultados{
+    width: 100%;
+    display: block;
+}
+
+.list{
+    display: flex;
+    justify-content: center;
+}
+/*fin buscarMedico*/
 
 .contenido{
     width: 100%;
     margin-top: 2%;
+    margin-bottom: 2%;
     text-align: justify;
     display: flex;
     justify-content: center;
@@ -297,6 +437,14 @@ main{
     margin: 15px 10%;
     padding: 0px 15px;
     font-size: large;
+}
+
+#locales p{
+    width: 60%;
+    margin-left: 20%;
+    background-color: #B1DCF4;
+    border-radius: 5px;
+    padding: 10px 60px;
 }
 
 .botonDescarga{
@@ -364,7 +512,7 @@ footer .grupo2 small{
 /*fin elemento footer*/
 
 /*Ajustes responsive*/
-@media screen and (max-width:768px) {
+@media screen and (max-width:900px) {
     .modal{
         width: 90%;
     }
@@ -428,12 +576,41 @@ footer .grupo2 small{
     }
 
     .articulo{
-        width: 80%;
+        width: 100%;
         font-size: large;
+    }
+
+    #locales p{
+        width: 90%;
+        margin-left: 5%;
+        padding: 10px 40px;
     }
 
     .contenedorAcordion{
         width: 90%;
     }
+
+    .contenedorFormulario{
+        padding: 20px;
+    }
+
+    .formulario{
+        width: 100%;
+    }
+
+    .formulario #formulario #informacionPregunta{
+        width: 90%;
+    }
+
+    .tarjeta {
+        width: calc(50% - 40px); /* Ajusta el ancho de las tarjetas para que quepan dos en una fila en dispositivos medianos */
+    }
+
 }   
+
+@media screen and (max-width: 576px) {
+    .tarjeta {
+        width: calc(100% - 40px); /* Ajusta el ancho de las tarjetas para que ocupen todo el ancho en dispositivos pequeños */
+    }
+}
 /*fin ajustes responsive*/

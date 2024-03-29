@@ -1,4 +1,10 @@
-.calendar{
+.contenedorCalendario{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.calendario{
     left: 25%;
     width: 50%;
     position: relative;

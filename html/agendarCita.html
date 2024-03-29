@@ -4,22 +4,25 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="./../css/style.css">
-        <link rel="stylesheet" type="text/css" href="./../css/formularios.css">
         <link rel="stylesheet" type="text/css" href="./../css/agendarCita.css">
         <script src="./../js/citas.js"></script>
-        <title>Pagina de Inicio</title>
+        <title>Agenda de citas</title>
     </head>
     <body>
        
         <header>
+
             <h1>Árbol de Seda</h1>
-            <label for="buttonMenu"></label>
-            <input type="checkbox" id="buttonMenu">
+            <label id="etiquetaBotonMenu" for="botonMenu"><img src="./../img/menu.png" alt="menu"></label>
+            <input type="checkbox" id="botonMenu">
             
             <nav class="menu">    
                 <ul>
                     <li>
-                        <a href="./../html/registro.html">Registro / Inicio de sesión</a>
+                        <a href="./../index.html">Inicio</a>
+                    </li>
+                    <li>
+                        <a href="./../html/inicioSesion.html">Inicio de sesión</a>
                     </li>
                     <li>
                         <a href="./../html/agendarCita.html">Agenda de citas</a>
@@ -49,29 +52,31 @@
 
         <main>
 
-            <div class="content">
-                <div class="form">
+            <div class="contenedorFormulario">
+
+                <div class="formulario">
+
                     <h3>Agendar Cita</h3>
-                    <form id="form" method="post">
+                    <form id="formulario" method="post">
 
-                        <div class="date">
-                            <label for="day">Seleccione el dia</label>
-                            <input id="day" type="date" required>
+                        <div class="campoFormulario">
+                            <label for="dia">Seleccione el dia</label>
+                            <input id="dia" type="date" required>
                         </div>
 
-                        <div class="date">
-                            <label for="time">Seleccione la hora</label>
-                            <input id="time" type="time" min="00:00" max="12:00" required>
+                        <div class="campoFormulario">
+                            <label for="hora">Seleccione la hora</label>
+                            <input id="hora" type="time" required>
                         </div>
 
-                        <div class="date">
-                            <label for="medic">Seleccione al medico</label>
-                            <input id="medic" type="text" required>
+                        <div class="campoFormulario">
+                            <label for="id">Identificación medico</label>
+                            <input id="id" type="text" required>
                         </div>
 
-                        <div class="date">
-                            <label for="specialization">Especializacion</label>
-                            <select name="specialization" id="specialization">
+                        <div class="campoFormulario">
+                            <label for="especializacion">Especializacion</label>
+                            <select name="especializacion" id="especializacion" required>
                                 <option value="Cardiologia">Cardiologia</option>
                                 <option value="Odontología">Odontología</option>
                                 <option value="Dermatología">Dermatología</option>
@@ -79,10 +84,19 @@
                             </select>
                         </div>
 
-                        <input id="agendar" type="submit" value="Agendar">
+                        <div class="vinculosFormularios">
+                            <input id="agendar" type="submit" value="Agendar">
+                            <input id="cancelar" type="submit" value="Cancelar">
+                        </div>
 
                     </form>
-                </div> 
+
+                </div>
+                
+            </div>
+
+            <div class="contenedorCalendario">
+ 
                 <div class="calendar">
                     <h3>Calendario de citas</h3>
                     <h4 id="month">Marzo</h4>
@@ -183,18 +197,23 @@
         </main>
 
         <footer>
-            <div class="group1">
-                <div class="box">
-                    <p><a href="index.html">Inicio</a></p>
-                    <p><a href="">Preguntas frecuentes (FAQ)</a></p>
-                    <p><a href="">Política de privacidad y términos de uso</a></p>
+
+            <div class="grupo1">
+                <div class="cajaFooter">
+                    <p><a href="./../index.html">Inicio</a></p>
+                    <p><a href="./../html/servicios.html">Servicios</a></p>
+                    <p><a href="./../html/preguntasFrecuentes.html">Preguntas frecuentes (FAQ)</a></p>
                 </div>
-                <div class="box">
-                    <p><a href="./../html/infoContacto.html">Información de contacto</a></p>
+
+                <div class="cajaFooter">
                     <p><a href="./../html/sobreNosotros.html">Sobre nosotros</a></p>
+                    <p><a href="./../html/infoContacto.html">Información de contacto</a></p>
+                    <p><a href="./../html/politicaDePrivacidad.html">Política de privacidad y términos de uso</a></p>
                 </div>
+
             </div>
-            <div class="group2">
+
+            <div class="grupo2">
                 <small>&copy; 2024 <b>FS Group</b> - Todos los derechos reservados</small>
             </div>
 

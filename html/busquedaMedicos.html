@@ -4,20 +4,23 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="./../css/style.css">
-        <script src="js/main.js"></script>
-        <title>Pagina de Inicio</title>
+        <title>Búsqueda de médicos</title>
     </head>
     <body>
        
         <header>
+
             <h1>Árbol de Seda</h1>
-            <label for="buttonMenu"></label>
-            <input type="checkbox" id="buttonMenu">
+            <label id="etiquetaBotonMenu" for="botonMenu"><img src="./../img/menu.png" alt="menu"></label>
+            <input type="checkbox" id="botonMenu">
             
             <nav class="menu">    
                 <ul>
                     <li>
-                        <a href="./../html/registro.html">Registro / Inicio de sesión</a>
+                        <a href="./../index.html">Inicio</a>
+                    </li>
+                    <li>
+                        <a href="./../html/inicioSesion.html">Inicio de sesión</a>
                     </li>
                     <li>
                         <a href="./../html/agendarCita.html">Agenda de citas</a>
@@ -47,19 +50,55 @@
 
         <main>
 
-            <div class="content">
-                <div class="form">
-                    <form id="form" method="post">
-                        <div class="searchInterface">
-                            <label for="searcData">Buscar</label>
-                            <input id="searchData" type="search">
+            <div class="contenedorFormulario">
+
+                <div class="formulario">
+
+                    <h3>Buscar Medicos</h3>
+                    <form id="formulario" method="post">
+
+                        <div class="campoFormulario">
+                            <label for="nombre">Nombre</label>
+                            <input id="nombre" type="text">
                         </div>
 
-                        <input id="search" type="submit" value="Buscar">
+                        <div class="campoFormulario">
+                            <label for="especializacion">Especializacion</label>
+                            <select name="especializacion" id="especializacion">
+                                <option value="Cardiologia">Cardiologia</option>
+                                <option value="Odontología">Odontología</option>
+                                <option value="Dermatología">Dermatología</option>
+                                <option value="Optometría">Optometría</option>
+                            </select>
+                        </div>
+
+                        <div class="campoFormulario">
+                            <label for="ubicacion">Ubicación</label>
+                            <select name="ubicacion" id="ubicacion">
+                                <option value="Turrialba">Turrialba</option>
+                                <option value="San José">San José</option>
+                            </select>
+                        </div>
+
+                        <div class="campoFormulario">
+                            <label for="id">Identificación</label>
+                            <input id="id" type="text">
+                        </div>
+
+                        <div class="vinculosFormularios">
+                            <input id="buscar" type="submit" value="buscar">
+                        </div>
 
                     </form>
+
                 </div>
+                
+            </div>
+            
+            <div class="contenedorResultados">
+
                 <div class="list">
+
                     <table id="medicInformation">
                         <tr>
                             <th>Nombre</th>
@@ -77,18 +116,23 @@
         </main>
 
         <footer>
-            <div class="group1">
-                <div class="box">
-                    <p><a href="index.html">Inicio</a></p>
-                    <p><a href="">Preguntas frecuentes (FAQ)</a></p>
-                    <p><a href="">Política de privacidad y términos de uso</a></p>
+
+            <div class="grupo1">
+                <div class="cajaFooter">
+                    <p><a href="./../index.html">Inicio</a></p>
+                    <p><a href="./../html/servicios.html">Servicios</a></p>
+                    <p><a href="./../html/preguntasFrecuentes.html">Preguntas frecuentes (FAQ)</a></p>
                 </div>
-                <div class="box">
-                    <p><a href="./../html/infoContacto.html">Información de contacto</a></p>
+
+                <div class="cajaFooter">
                     <p><a href="./../html/sobreNosotros.html">Sobre nosotros</a></p>
+                    <p><a href="./../html/infoContacto.html">Información de contacto</a></p>
+                    <p><a href="./../html/politicaDePrivacidad.html">Política de privacidad y términos de uso</a></p>
                 </div>
+
             </div>
-            <div class="group2">
+
+            <div class="grupo2">
                 <small>&copy; 2024 <b>FS Group</b> - Todos los derechos reservados</small>
             </div>
 

@@ -3,48 +3,45 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" type="text/css" href="css/style.css">
-        <script src="js/main.js"></script>
-        <title></title>
+        <link rel="stylesheet" type="text/css" href="./../css/style.css">
+        <title>Contacto</title>
     </head>
     <body>
        
         <header>
+
             <h1>Árbol de Seda</h1>
-            <label for="buttonMenu"></label>
-            <input type="checkbox" id="buttonMenu">
+            <label id="etiquetaBotonMenu" for="botonMenu"><img src="./../img/menu.png" alt="menu"></label>
+            <input type="checkbox" id="botonMenu">
             
             <nav class="menu">    
                 <ul>
                     <li>
-                        <a href="html/registro.html">Registro / Inicio de sesión</a>
+                        <a href="./../index.html">Inicio</a>
                     </li>
                     <li>
-                        <a href="">Agenda de citas</a>
+                        <a href="./../html/inicioSesion.html">Inicio de sesión</a>
                     </li>
                     <li>
-                        <a href="">Búsqueda de médicos</a>
+                        <a href="./../html/agendarCita.html">Agenda de citas</a>
                     </li>
                     <li>
-                        <a href="">Servicios</a>
+                        <a href="./../html/busquedaMedicos.html">Búsqueda de médicos</a>
                     </li>
                     <li>
-                        <a href="html/sobreNosotros.html">Sobre nosotros</a>
+                        <a href="./../html/servicios.html">Servicios</a>
                     </li>
                     <li>
-                        <a href="">Servicios</a>
+                        <a href="./../html/sobreNosotros.html">Sobre nosotros</a>
                     </li>
                     <li>
-                        <a href="">Contacto</a>
+                        <a href="./../html/infoContacto.html">Contacto</a>
                     </li>
                     <li>
-                        <a href="">Preguntas frecuentes</a>
+                        <a href="./../html/preguntasFrecuentes.html">Preguntas frecuentes</a>
                     </li>
                     <li>
-                        <a href="">Política de privacidad</a>
-                    </li>
-                    <li>
-                        <a href="">Términos de uso</a>
+                        <a href="./../html/politicaDePrivacidad.html">Política de privacidad</a>
                     </li>
                 </ul>
             </nav>
@@ -53,69 +50,93 @@
 
         <main>
 
-            <div class="content">
-                <h2>Contacte con nosotros</h2>
-                <div class="article">
-                    <h3>Locales</h3>
-                    <p>
-                        <b>San José</b>
-                        <br>
-                        Dirección: Avenida Central, Calle 17, San José, Costa Rica. <a href="https://maps.app.goo.gl/mdhZMWCb77qspZvr7">Gooogle Maps</a>
-                        <br>
-                        Horario de atención: De lunes a viernes de 8:00 a.m. a 5:00 p.m. y sábados de 8:00 a.m. a 12:00 p.m.
-                        <br>
-                        Teléfono: +506 2222-2222
-                    </p>
+            <div class="contenido">
+
+                <div class="articulo">
+
+                    <h2>Contacte con nosotros</h2>
                     <br>
-                    <p>
-                        <b>Turrialba</b>
+                    <div id="locales">
+
+                        <h4>Locales</h4>
+                        <p>
+                            <b>San José</b>
+                            <br>
+                            Dirección: Avenida Central, Calle 17, San José, Costa Rica. 
+                            <a href="https://maps.app.goo.gl/mdhZMWCb77qspZvr7">Gooogle Maps</a>
+                            <br>
+                            Horario de atención: De lunes a viernes de 8:00 a.m. a 5:00 p.m. <br>
+                            y sábados de 8:00 a.m. a 12:00 p.m.
+                            <br>
+                            Teléfono: +506 2222-2222
+                        </p>
                         <br>
-                        Dirección: Calle Real, Turrialba, Cartago, Costa Rica. <a href="https://maps.app.goo.gl/ANoTzdTx8cpuYTLZ7">Gooogle Maps</a>
-                        <br>
-                        Horario de atención: De lunes a viernes de 8:00 a.m. a 5:00 p.m.
-                        <br>
-                        Teléfono: +506 2555-5555
-                    </p>
+                        <p>
+                            <b>Turrialba</b>
+                            <br>
+                            Dirección: Calle Real, Turrialba, Cartago, Costa Rica. 
+                            <a href="https://maps.app.goo.gl/ANoTzdTx8cpuYTLZ7">Gooogle Maps</a>
+                            <br>
+                            Horario de atención: De lunes a viernes de 8:00 a.m. a 5:00 p.m.
+                            <br>
+                            Teléfono: +506 2555-5555
+                        </p>
+
+                    </div>
+
                 </div>
 
-                <h3>Consultas/Soporte Tecnico</h3>
-                <div class="form">
-                    <form id="form" method="post">
+            </div>
 
-                        <div class="query">
+            <div class="contenedorFormulario">
+                        
+                <div class="formulario">
+
+                    <h3>Consultas/Soporte Tecnico</h3>
+                    <form id="formulario" method="post">
+
+                        <div class="campoFormulario">
                             <label for="email">Correo electronico</label>
                             <input id="email" type="email" required>
                         </div>
 
-                        <div class="singIn">
-                            <label for="questionInfo">Ingrese su consulta</label>
-                            <textarea id="questionInfo" cols="30" rows="10" required></textarea>
+                        <div class="campoFormulario">
+                            <label for="asunto">Asunto</label>
+                            <input id="asunto" type="text">
                         </div>
 
-                        <input id="seedQuestion" type="submit" value="Enviar">
+                        <div class="campoFormulario">
+                            <label for="informacionPregunta">Ingrese su consulta</label>
+                            <textarea id="informacionPregunta" cols="40" rows="20" re required></textarea>
+                        </div>
+
+                        <input id="enviarPregunta" type="submit" value="Enviar">
+                        
                     </form>
+
                 </div>
-
             </div>
-
-            
-           
 
         </main>
 
         <footer>
-            <div class="group1">
-                <div class="box">
-                    <p><a href="index.html">Inicio</a></p>
-                    <p><a href="">Preguntas frecuentes (FAQ)</a></p>
-                    <p><a href="">Política de privacidad y términos de uso</a></p>
+
+            <div class="grupo1">
+                <div class="cajaFooter">
+                    <p><a href="./../index.html">Inicio</a></p>
+                    <p><a href="./../html/servicios.html">Servicios</a></p>
+                    <p><a href="./../html/preguntasFrecuentes.html">Preguntas frecuentes (FAQ)</a></p>
                 </div>
-                <div class="box">
-                    <p><a href="">Información de contacto</a></p>
-                    <p><a href="html/sobreNosotros.html">Sobre nosotros</a></p>
+
+                <div class="cajaFooter">
+                    <p><a href="./../html/sobreNosotros.html">Sobre nosotros</a></p>
+                    <p><a href="./../html/infoContacto.html">Información de contacto</a></p>
+                    <p><a href="./../html/politicaDePrivacidad.html">Política de privacidad y términos de uso</a></p>
                 </div>
+
             </div>
-            <div class="group2">
+
+            <div class="grupo2">
                 <small>&copy; 2024 <b>FS Group</b> - Todos los derechos reservados</small>
             </div>
 

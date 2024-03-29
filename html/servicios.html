@@ -4,20 +4,23 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="./../css/style.css">
-        <script src="js/main.js"></script>
-        <title>Pagina de Inicio</title>
+        <title>Servicios</title>
     </head>
     <body>
        
         <header>
+
             <h1>Árbol de Seda</h1>
-            <label for="buttonMenu"></label>
-            <input type="checkbox" id="buttonMenu">
+            <label id="etiquetaBotonMenu" for="botonMenu"><img src="./../img/menu.png" alt="menu"></label>
+            <input type="checkbox" id="botonMenu">
             
             <nav class="menu">    
                 <ul>
                     <li>
-                        <a href="./../html/registro.html">Registro / Inicio de sesión</a>
+                        <a href="./../index.html">Inicio</a>
+                    </li>
+                    <li>
+                        <a href="./../html/inicioSesion.html">Inicio de sesión</a>
                     </li>
                     <li>
                         <a href="./../html/agendarCita.html">Agenda de citas</a>
@@ -46,23 +49,181 @@
         </header>
 
         <main>
-           
+
+            <div class="contenido">
+
+                <div class="articulo">
+
+                    <h2>Servicios del sistema</h2>
+                    <br>
+                    <h4>Programación de Citas Precisa y Conveniente</h4>
+                    <p>Los usuarios tienen la capacidad de programar citas médicas de manera precisa y conveniente a 
+                        través de una interfaz intuitiva y fácil de usar. Pueden seleccionar la fecha y hora deseada, 
+                        así como la especialidad médica y el médico específico con quien desean la consulta.</p>
+
+                    <h4>Modificación y Cancelación de Citas</h4>
+                    <p>El sistema permite a los usuarios realizar modificaciones o cancelaciones de citas existentes de 
+                        forma rápida y sencilla. Esta funcionalidad proporciona flexibilidad tanto para los pacientes 
+                        como para los médicos, permitiendo ajustes según sea necesario.
+                    </p>
+
+                    <h4>Calendario Interactivo</h4>
+                    <p>Integra un calendario interactivo que muestra visualmente las citas programadas. Los usuarios pueden 
+                        navegar fácilmente por diferentes días, semanas o meses, lo que les permite planificar sus consultas 
+                        médicas de manera efectiva.
+                    </p>
+
+                    <h4>Recordatorios Automatizados</h4>
+                    <p>Opcionalmente, el sistema envía recordatorios automatizados por correo electrónico para ayudar a los 
+                        pacientes y médicos a mantenerse informados sobre sus citas programadas. Estos recordatorios pueden 
+                        enviarse unos días antes de la fecha de la cita para reducir las ausencias y mejorar la puntualidad.
+                    </p>
+
+                    <h4>Historial de Citas</h4>
+                    <p>Mantiene un registro detallado del historial de citas para cada usuario, incluyendo citas pasadas y futuras. 
+                        Los usuarios pueden acceder fácilmente a este historial para consultar sus citas anteriores y programar 
+                        nuevas consultas de manera más informada.
+                    </p>
+
+                    <h4>Confirmación de Citas</h4>
+                    <p>Implementa un sistema de confirmación de citas donde tanto los pacientes como los médicos pueden confirmar 
+                        la cita programada. Esta función ayuda a garantizar que ambas partes estén al tanto de la cita y reduce 
+                        la posibilidad de confusiones o cancelaciones de última hora.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="cotenedorTarjetas">
+            
+                <h2>Tipos de citas</h2>
+
+                <div class="tarjetas">
+        
+                    <div class="tarjeta">
+                        <figure>
+                            <img src="https://img.freepik.com/fotos-premium/medico-paciente-sentados-discutiendo-algo-cerca-otro-escritorio-blanco-clinica-doctora-escuchando-llenando-formulario-registros-concepto-medicina_665183-22626.jpg" alt="deasarrollado">
+                        </figure>
+                       <div class="textoTarjeta">
+                            <h3>Consulta Médica</h3>
+                            <p>Las citas de consulta médica son citas estándar en las que los pacientes consultan a un médico para 
+                                diagnosticar y tratar una variedad de problemas de salud. Estas citas pueden ser para abordar nuevas 
+                                preocupaciones de salud, discutir síntomas específicos o seguir un plan de tratamiento existente.
+                            </p>
+                       </div>
+                    </div>
+        
+                    <div class="tarjeta">
+                        <figure>
+                            <img src="https://media.istockphoto.com/id/1463488256/es/foto/paciente-mayor-sentada-en-una-mesa-de-examen-mientras-una-enfermera-cauc%C3%A1sica-mide-la-presi%C3%B3n.jpg?s=612x612&w=0&k=20&c=vpp9DENGqO01bWKGRKveH4O3pN-InsRZ-Ik-4KuudAo=" alt="clinica">
+                        </figure>
+                        <div class="textoTarjeta">
+                            <h3>Chequeo Médico</h3>
+                            <p>Los chequeos médicos son citas preventivas diseñadas para evaluar la salud general de un paciente y 
+                                detectar cualquier problema de salud antes de que se convierta en un problema más grave. Estas citas 
+                                suelen incluir revisiones físicas, pruebas de laboratorio y discusiones sobre el estilo de vida y la salud.</p>
+                        </div>   
+                    </div>
+        
+                    <div class="tarjeta">
+                        <figure>
+                            <img src="https://www.enfermeriayseguridaddelpaciente.com/wp-content/uploads/2023/09/adult-4402808_1280-1-1200x900.jpg" 
+                            alt="equipo">
+                        </figure>
+                        <div class="textoTarjeta">
+                            <h3>Citas de Seguimiento</h3>
+                            <p>Las citas de seguimiento son citas programadas para revisar el progreso del tratamiento o para 
+                                monitorear condiciones médicas crónicas. Estas citas permiten al médico evaluar la eficacia del 
+                                tratamiento y realizar ajustes según sea necesario para garantizar el mejor resultado para el paciente.
+                            </p>
+                        </div>
+                    </div>
+        
+                    <div class="tarjeta">
+                        <figure>
+                            <img src="https://media.istockphoto.com/id/1373259039/es/foto/m%C3%A9dico-discutiendo-el-caso-del-paciente-con-el-especialista.jpg?s=612x612&w=0&k=20&c=xiI-xZ-8HeMyXp47YsNxMXhGror7Do25DDYfCqEFcos=" 
+                            alt="equipo">
+                        </figure>
+                        <div class="textoTarjeta">
+                            <h3>Citas de Control o Revisión</h3>
+                            <p>Las citas de control o revisión son programadas para evaluar el estado de salud de un paciente 
+                                después de un tratamiento o intervención específica. Estas citas son importantes para garantizar 
+                                que el tratamiento haya sido efectivo y para abordar cualquier preocupación adicional que pueda surgir.</p>
+                        </div>
+                    </div>
+
+                    <div class="tarjeta">
+                        <figure>
+                            <img src="https://clinicadentalgranviaalicante.com/wp-content/uploads/2020/06/limpieza-dental-profesional-clinica-dental-gran-via-alicante-4.jpg" 
+                            alt="equipo">
+                        </figure>
+                        <div class="textoTarjeta">
+                            <h3>Consultas Especializadas</h3>
+                            <p>Estas citas se programan con médicos especialistas en una determinada área de la medicina, como 
+                                cardiología, dermatología, odontología u optometría. Los pacientes son referidos a estos especialistas 
+                                por su médico de atención primaria para evaluación y tratamiento especializado.</p>
+                        </div>
+                    </div>
+        
+                </div>
+        
+            </div>
+
+            <div class="contenido">
+
+                <div class="articulo">
+                   
+                    <h4>Disponibilidad de Médicos:</h4>
+                    <p><strong>Ana Rivera (Odontología):</strong> Horario de Consulta: 9:50 am a 6:50 pm en Turrialba.</p>
+                    <p><strong>Elena Martínez (Dermatología):</strong> Horario de Consulta: 10:00 am a 7:00 pm en San José.</p>
+                    <p><strong>Carlos García (Cardiología):</strong> Horario de Consulta: 8:00 am a 12:00 pm en Turrialba.</p>
+                    <p><strong>Sofía Pérez (Optometría):</strong> Horario de Consulta: 2:00 pm a 8:00 pm en San José.</p>
+
+                    <h4>Especialidades Médicas:</h4>
+                    <p><strong>Odontología:</strong> Ana Rivera, ubicada en Turrialba.</p>
+                    <p><strong>Dermatología:</strong> Elena Martínez, ubicada en San José.</p>
+                    <p><strong>Cardiología:</strong> Carlos García, ubicado en Turrialba.</p>
+                    <p><strong>Optometría:</strong> Sofía Pérez, ubicada en San José.</p>
+
+                </div>
+
+                <div class="articulo">
+
+                    <h4>Ubicaciones:</h4>
+                    <p><strong>Turrialba:</strong> Ana Rivera (Odontología) y Carlos García (Cardiología).</p>
+                    <p><strong>San José:</strong> Elena Martínez (Dermatología) y Sofía Pérez (Optometría).</p>
+
+                    <h4>Identificación de Médicos:</h4>
+                    <p><strong>Ana Rivera (Odontología):</strong> Identificación: 304560463.</p>
+                    <p><strong>Elena Martínez (Dermatología):</strong> Identificación: 254879231.</p>
+                    <p><strong>Carlos García (Cardiología):</strong> Identificación: 123456789.</p>
+                    <p><strong>Sofía Pérez (Optometría):</strong> Identificación: 987654321.</p>
+
+                </div>
+
+            </div>
+
         </main>
 
         <footer>
 
-            <div class="group1">
-                <div class="box">
-                    <p><a href="index.html">Inicio</a></p>
-                    <p><a href="">Preguntas frecuentes (FAQ)</a></p>
-                    <p><a href="">Política de privacidad y términos de uso</a></p>
+            <div class="grupo1">
+                <div class="cajaFooter">
+                    <p><a href="./../index.html">Inicio</a></p>
+                    <p><a href="./../html/servicios.html">Servicios</a></p>
+                    <p><a href="./../html/preguntasFrecuentes.html">Preguntas frecuentes (FAQ)</a></p>
                 </div>
-                <div class="box">
-                    <p><a href="./../html/infoContacto.html">Información de contacto</a></p>
+
+                <div class="cajaFooter">
                     <p><a href="./../html/sobreNosotros.html">Sobre nosotros</a></p>
+                    <p><a href="./../html/infoContacto.html">Información de contacto</a></p>
+                    <p><a href="./../html/politicaDePrivacidad.html">Política de privacidad y términos de uso</a></p>
                 </div>
+
             </div>
-            <div class="group2">
+
+            <div class="grupo2">
                 <small>&copy; 2024 <b>FS Group</b> - Todos los derechos reservados</small>
             </div>
 
@@ -70,3 +231,7 @@
 
     </body>
 </html>
+
+
+
+
