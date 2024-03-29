@@ -1,36 +1,32 @@
-const months =  ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+const meses =  ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
 const dateNow = new Date();
-var nowMonth = dateNow.getMonth();
+var mesActual = dateNow.getMonth();
 
 document.addEventListener('DOMContentLoaded',function() {
-    console.log(nowMonth);
-    getDaysCalendar(dateNow.getFullYear(),nowMonth);
+    getDaysCalendar(dateNow.getFullYear(),mesActual);
 })//eventLoadedDOM
 
-function loadNextMonth(){
-    console.log(nowMonth);
-    nowMonth = (nowMonth + 1) % months.length;
-    getDaysCalendar(dateNow.getFullYear(),nowMonth);
+const loadNextMonth = () => {
+    mesActual = (mesActual + 1) % meses.length;
+    getDaysCalendar(dateNow.getFullYear(),mesActual);
 }//end function
 
-function loadPrevMonth(){//pasar a funciones flecha
-    console.log(nowMonth);
-    nowMonth = (nowMonth + months.length - 1) % months.length;
-    getDaysCalendar(dateNow.getFullYear(),nowMonth);
+const loadPrevMonth = () => {//pasar a funciones flecha
+    mesActual = (mesActual + meses.length - 1) % meses.length;
+    getDaysCalendar(dateNow.getFullYear(),mesActual);
 }//end function
 
-function getDaysCalendar(year,month){
-    const tableDays = document.getElementById('days');
-    document.getElementById('month').innerHTML = months[month];
-    document.getElementById('year').innerHTML=year
-    let firstDay = new Date(year,month,1).getDay()-1;
-    let lastDay = new Date(year,month,0).getDay();
+const getDaysCalendar = (anio,mes) => {
+    const diasTabla = document.getElementById('dias');
+    document.getElementById('mes').innerHTML = meses[mes];
+    document.getElementById('anio').innerHTML= anio;
+    let primerDia = new Date(anio,mes,1).getDay()-1;
+    let ultimoDia = new Date(anio,mes,0).getDay();
 
-    for (let i = -firstDay,j = 0 ; i < (42-firstDay); i++,j++) {
-        let dateTable = new Date(year,month,i);
-        let dayTable = tableDays.getElementsByTagName('td')[j];
-        dayTable.innerHTML = dateTable.getDate();
-
+    for (let i = -primerDia,j = 0 ; i < (42-primerDia); i++,j++) {
+        let fechaTabla = new Date(anio,mes,i);
+        let diaTabla = diasTabla.getElementsByTagName('td')[j];
+        diaTabla.innerHTML = fechaTabla.getDate();
     }//end for
 
 }//end function

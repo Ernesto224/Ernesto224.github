@@ -95,27 +95,32 @@
                 
             </div>
 
+            
             <div class="contenedorCalendario">
- 
-                <div class="calendar">
-                    <h3>Calendario de citas</h3>
-                    <h4 id="month">Marzo</h4>
-                    <h4 id="year">2024</h4>
+
+               
+
+                <div class="calendario">
+
                     <a class="prev" onclick="loadPrevMonth()">&#10094;</a>
-                    <a class="next" onclick="loadNextMonth()">&#10095;</a>
-                    <table class="tableCalendar">
+                    <h2>
+                        <h4 id="mes">Marzo</h4>
+                        <h4 id="anio">2024</h4>
+                    </h2>
+                    <table class="tablaCalendario">
+
                         <thead>
                             <tr>
-                                <th>Domingo</th>
-                                <th>Lunes</th>
-                                <th>Martes</th>
-                                <th>Miercoles</th>
-                                <th>Juevez</th>
-                                <th>Viernes</th>
-                                <th>Sabado</th>
+                                <th>Do</th>
+                                <th>Lu</th>
+                                <th>Mar</th>
+                                <th>Mie</th>
+                                <th>Ju</th>
+                                <th>Vi</th>
+                                <th>Sa</th>
                             </tr>
                         </thead>
-                        <tbody id="days">
+                        <tbody id="dias">
                             <tr>
                                 <td>1</td>
                                 <td>2</td>
@@ -178,18 +183,7 @@
                             </tr>
                         </tbody>
                     </table>
-                </div>
-                <input type="checkbox" id="btnOpenModal">
-                <div class="modalContent">
-                    <div class="modal">
-                        <h2>Esto es un ejemplo</h2>
-                        <p>Texto de relleno</p>
-                        <div class="exitModal">
-                            <label for="btnOpenModal">Cerrar</label>
-                        </div>
-                    </div>
-                    <label for="btnOpenModal" id="closeOfFocus"></label>
-                    </div>
+                    <a class="next" onclick="loadNextMonth()">&#10095;</a>
                 </div>
 
             </div>

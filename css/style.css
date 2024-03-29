@@ -418,6 +418,46 @@ main{
 }
 /*fin buscarMedico*/
 
+/*Calendario*/
+.contenedorCalendario{
+    width: 100%;
+    margin: 2% 0;
+    display: flex;
+    justify-content: center;
+}
+
+.calendario{
+    width: 40%;
+    padding: 2%;
+    position: relative;
+    background-color: #B1DCF4;
+    border-radius: 5px;
+}
+
+.tablaCalendario{
+    margin: auto;
+}
+
+.tablaCalendario thead{
+    border-bottom: 2px solid #17303D;
+}
+
+.tablaCalendario td{
+    width: 70px;
+    height: 70px;
+    text-align: center;
+    border: 1px solid #17303D;
+}
+
+.contenedorCalendario tbody td{
+    cursor: pointer;
+}
+
+.tablaCalendario tbody td:hover{
+    background-color: #4893BC;
+}
+/*fin calendario*/
+
 .contenido{
     width: 100%;
     margin-top: 2%;
@@ -606,6 +646,20 @@ footer .grupo2 small{
         width: calc(50% - 40px); /* Ajusta el ancho de las tarjetas para que quepan dos en una fila en dispositivos medianos */
     }
 
+    .calendario{
+        width: 90%;
+        padding: 20px 20px;
+    }
+
+    .tablaCalendario thead{
+        font-size: 0.5em;
+
+    }
+
+    .tablaCalendario td{
+        width: 40px;
+        height: 40px;
+    }
 }   
 
 @media screen and (max-width: 576px) {

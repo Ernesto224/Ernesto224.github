@@ -1,42 +1,3 @@
-.contenedorCalendario{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
-
-.calendario{
-    left: 25%;
-    width: 50%;
-    position: relative;
-    text-align: center;
-}
-
-.tableCalendar{
-    margin: auto;
-    border-collapse: collapse;
-}
-
-.tableCalendar thead{
-    background-color:blanchedalmond;
-    border-bottom: 2px solid red;
-    margin: auto;
-}
-
-.tableCalendar td{
-    text-align: center;
-    border: 1px solid black;
-    width: 70px;
-    height: 70px;
-}
-
-.tableCalendar tbody td{
-    cursor: pointer;
-}
-
-.tableCalendar tbody td:hover{
-    background-color: aqua;
-}
-
 /*Ventana Modal*/
 #btnOpenModal:checked ~ .modalContent{
     display: flex;
@@ -102,3 +63,18 @@
     left: 0;
     z-index: -1;
 }
+
+
+<input type="checkbox" id="btnOpenModal">
+<div class="modalContent">
+    <div class="modal">
+        <h2>Esto es un ejemplo</h2>
+        <p>Texto de relleno</p>
+        <div class="exitModal">
+            <label for="btnOpenModal">Cerrar</label>
+        </div>
+    </div>
+    <label for="btnOpenModal" id="closeOfFocus"></label>
+    </div>
+</div>
+
