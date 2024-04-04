@@ -539,12 +539,32 @@ header label:hover{
     border: 1px solid #17303D;
 }
 
-.contenedorCalendario tbody td{
+.contenedorCalendario td{
     cursor: pointer;
 }
 
-.tablaCalendario tbody td:hover{
+.tablaCalendario td:hover{
     background-color: #4893BC;
+}
+
+.tablaCalendario .CA{
+    background-color: red;
+}
+
+.tablaCalendario .AG{
+    background-color: yellow;
+}
+
+.tablaCalendario .AC{
+    background-color: #275167;
+}
+
+.tablaCalendario .mesAnterior,.tablaCalendario .siguienteMes{
+    color: #7e7e7e;
+}
+
+.tablaCalendario .mesAnterior:hover, .tablaCalendario .siguienteMes:hover{
+    background-color: #F0D6EC;
 }
 /*fin calendario*/
 

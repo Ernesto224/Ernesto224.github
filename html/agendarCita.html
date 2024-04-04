@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="./../css/style.css">
         <script src="./../js/calendario.js"></script>
+        <script src="./../js/citas.js"></script>
         <script src="./../js/sesion.js"></script>
         <title>Agenda de citas</title>
     </head>
@@ -13,7 +14,7 @@
         <header>
 
             <h1>Árbol de Seda</h1>
-            <label id="etiquetaBotonMenu" for="botonMenu"><img src="img/menu.png" alt="menu"></label>
+            <label id="etiquetaBotonMenu" for="botonMenu"><img src="./../img/menu.png" alt="menu"></label>
             <input type="checkbox" id="botonMenu">
             
             <nav class="menu">    
@@ -69,39 +70,42 @@
 
                         <div class="campoFormulario">
                             <label for="hora">Seleccione la hora</label>
-                            <input id="hora" type="time" required>
+                            <input id="hora" type="time" min="08:00" max="17:00" value="08:00" required>
                         </div>
 
                         <div class="campoFormulario">
-                            <label for="id">Identificación medico</label>
-                            <input id="id" type="text" required>
+                            <label for="medicosDisponibles">Medico</label>
+                            <select name="medicos" id="medicosDisponibles" required>
+                                
+                            </select>
                         </div>
 
                         <div class="campoFormulario">
                             <label for="especializacion">Especializacion</label>
                             <select name="especializacion" id="especializacion" required>
-                                <option value="Cardiologia">Cardiologia</option>
+                                <option value="Cardiología">Cardiologia</option>
                                 <option value="Odontología">Odontología</option>
                                 <option value="Dermatología">Dermatología</option>
                                 <option value="Optometría">Optometría</option>
                             </select>
                         </div>
 
-                        <div class="vinculosFormularios">
-                            <input id="agendar" type="submit" value="Agendar">
-                            <input id="cancelar" type="submit" value="Cancelar">
-                        </div>
-
                     </form>
+
+                    <div class="vinculosFormularios">
+                        <div class="botonDescarga">
+                            <a id="agendar" onclick="agendarCita()">Agendar</a>
+                        </div>
+                        <div class="botonDescarga">
+                            <a id="cancelar" onclick="cancelarCita()">Cancelar</a>
+                        </div>
+                    </div>
 
                 </div>
                 
             </div>
 
-            
             <div class="contenedorCalendario">
-
-               
 
                 <div class="calendario">
 
@@ -114,7 +118,7 @@
 
                         <thead>
                             <tr>
-                                <th>Do</th>
+                                <th aria-valuemax="10">Do</th>
                                 <th>Lu</th>
                                 <th>Mar</th>
                                 <th>Mie</th>
@@ -125,7 +129,7 @@
                         </thead>
                         <tbody id="dias">
                             <tr>
-                                <td>1</td>
+                                <td class="mesAnterior">1</td>
                                 <td>2</td>
                                 <td>3</td>
                                 <td>4</td>
@@ -181,12 +185,61 @@
                                 <td>4</td>
                                 <td>5</td>
                                 <td>6</td>
-                                <td>7</td>
+                                <td class="siguienteMes">7</td>
 
                             </tr>
                         </tbody>
                     </table>
                     <a class="next" onclick="loadNextMonth()">&#10095;</a>
+                </div>
+
+            </div>
+
+            <div class="contenedorLista">
+
+                <div class="lista">
+
+                    <table id="informacionMedicos">
+
+                        <thead>
+                            <tr>
+                                <th>Fecha</th>
+                                <th>Hora</th>
+                                <th>Medico</th>
+                                <th>Ubicación</th>
+                                <th>Especialidad</th>
+                                <th>Estado</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="información">
+
+                        </tbody>
+
+                    </table>  
+
+                </div>
+
+            </div>  
+
+            <div class="contenedorBotones">
+
+                <div class="botonesDesplazamiento">
+                    <a class="anterior" onclick="cargarPaginaAnterior()">&#10094;</a>
+                    <a class="siguiente" onclick="cargarPaginaSiguiente()">&#10095;</a>
+                </div>
+                
+           </div>
+
+           <div id="fondoModal">
+
+                <div id="contenedorModal">
+
+                    <div class="contenidoModal">
+                        
+                    </div>
+                    <button id="btnCerrar">Cerrar</button>
+                    
                 </div>
 
             </div>

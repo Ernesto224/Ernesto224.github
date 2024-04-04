@@ -1,5 +1,8 @@
-const usuarios = JSON.parse(localStorage.getItem("usuriosRegistrados"));//carga el contenido del local storage
+let usuarios = JSON.parse(localStorage.getItem("usuriosRegistrados")) ?? [];
+//carga el contenido del local storage 
+//y en caso de ser null este sera una arreglo vacio
 var concidenciaContra = false;
+let intentos = 0;
 
 //metodo para dar la propiedad al formulario de evento desencadenador
 document.addEventListener("DOMContentLoaded", () => {
@@ -7,43 +10,54 @@ document.addEventListener("DOMContentLoaded", () => {
     const formulario = document.getElementById("formulario");
     //metodo que da al formulario la propiedad de ejecutar un evento
     formulario.addEventListener("submit", () => {
-        event.preventDefault();
 
+        event.preventDefault();
         //se optiene el valor del submit para saber que tipo de formulario de usuario es
         const tipoIni = document.getElementById("eviarDatosForm").value.trim();
-
+        console.log("entre"+tipoIni)
         //acciones para inicio de session
-        if (tipoIni == "Iniciar Session") {
+        if (tipoIni == "Iniciar Sesion") {
+            
+            if (intentos >= 5) {
+                alert("Limite de intentos excedido");
+                window.location.href = "./../index.html"//redireccionamiento al inicio
+            }//verifica los intentos restantes para que el usuario pueda ingresar
 
             let usuario = obtenerUsuarioIngresando();
             const valido = validarFormatoId(usuario) && validarContrasenia(usuario);
 
             //se verifica que el usuario este registrado y que la pasww sea correcta
             if (valido) {
+
+                encriptarContrasena(usuario)
+                .then(hash => {
+                    
+                    usuario.userPassword = hash;//cambia la pasw por el hash adecuado
+                    const registradoPrevio = verificarRegistrado(usuarios, usuario); 
+                    usuario = verificarContra(usuarios, usuario);
+                    
+                    if (registradoPrevio && usuario != null) {
     
-                const registradoPrevio = verificarRegistrado(usuarios, usuario); 
-                usuario = verificarContra(usuarios, usuario);
-                console.log("existe "+registradoPrevio);
-                console.log("usuario "+usuario);
-                
-                if (registradoPrevio && usuario != null) {
-
-                    //se almacena el usuario que inicia session en el session storage
-                    sessionStorage.setItem("usuarioEnSesion",JSON.stringify(usuario));//gurada los cambios
-                    manejarExito();
-                    window.location.href = "./../index.html"//redireccionamiento al inicio
-
-                }else{
-                    manejarError();    
-                }
-
+                        //se almacena el usuario que inicia session en el session storage
+                        sessionStorage.setItem("usuarioEnSesion",JSON.stringify(usuario));//gurada los cambios
+                        manejarExito();
+                        window.location.href = "./../index.html"//redireccionamiento al inicio
+                    }else{
+                        intentos++;
+                        manejarError();    
+                    }
+                })
+                .catch(error => {
+                    console.error('Error al encriptar la contraseña:', error);
+                })
             } else {
                 manejarError();
             }
+            // El hash resultante se almacena en la variable 'hash' y se cambia con la pasw del usuario
 
             //acciones de registro
         } else if (tipoIni == "Registrar") {
-
+    
             //se optienen todos los valores de los usuarios
             const usuario = obtenerNuevoUsuario();
             //se verifican todos los requerimientos y condiciones en los valores
@@ -59,10 +73,22 @@ document.addEventListener("DOMContentLoaded", () => {
                 const registradoPrevio = verificarRegistrado(usuarios, usuario); 
 
                 if (registradoPrevio === false) {
-                    usuarios.push(usuario);//agrega al usuario registrado a la lista
-                    localStorage.setItem("usuriosRegistrados",JSON.stringify(usuarios));//gurada los cambios en el local storage
-                    manejarExito();
-                    window.location.href = "./../html/inicioSesion.html"//redirecciona la pagiana
+
+                    //el metodo de encriptacion se realiza de forma asincronica 
+                    //asi que los procesos siguientes estan sujestos a el metodo
+                    encriptarContrasena(usuario)
+                    .then(hash => {
+                        
+                        // El hash resultante se almacena en la variable 'hash' y se cambia con la pasw del usuario
+                        usuario.userPassword = hash;
+                        usuarios.push(usuario);//agrega al usuario registrado a la lista
+                        localStorage.setItem("usuriosRegistrados",JSON.stringify(usuarios));//gurada los cambios en el local storage
+                        manejarExito();
+                        window.location.href = "./../html/inicioSesion.html"//redirecciona la pagiana
+                    })
+                    .catch(error => {
+                        console.error('Error al encriptar la contraseña:', error);
+                    });
                 }else{
                     manejarError();
                 }
@@ -176,7 +202,7 @@ const contraseniasIguales = (campoContra1, campoContra2) => {
 
 const guardarSesion = (usuario,valido) => {
 
-    if (valido) {
+    if (valido) {//guarda la sesion nueva en el sesion storage para manejar el acceso a la agenda de cita
         usuarioEnSesion = usuario;
         localStorage.setItem("usuarioEnSesion",usuarioEnSesion);
         window.location.href = "./../index.html";
@@ -187,8 +213,6 @@ const guardarSesion = (usuario,valido) => {
 };
 
 const verificarRegistrado = (usuarios, usuarioAValidar) => {
-
-    if (usuarios != null) return false;//valida la primera vez
 
     //este for se utiliza para verificar si el usuario esta colocando una identificacion que ya existe
     for (let index = 0; index < usuarios.length; index++) {
@@ -202,10 +226,26 @@ const verificarContra = (usuarios, usuarioAValidar) => {
 
     //a la hora de iniciar sesion se verifica que la contrasenia que ya exito
     for (let index = 0; index < usuarios.length; index++) {
-        
+        console.log(usuarios[index].userPassword)
+        console.log(usuarioAValidar.userPassword)
         if (usuarios[index].userPassword === usuarioAValidar.userPassword) return usuarios[index];
     }
     return null;
+}
+
+const encriptarContrasena = async (usuario) => {
+    // Codificar la contraseña como una secuencia de bytes
+    const buffer = new TextEncoder().encode(usuario.userPassword);
+    
+    // Calcular el hash utilizando SHA-256
+    const hashBuffer = await crypto.subtle.digest('SHA-256', buffer);
+    
+    // Convertir el hash a una representación hexadecimal
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+    const hashHex = hashArray.map(byte => byte.toString(16).padStart(2, '0')).join('');
+    
+    // Devolver el hash
+    return hashHex;
 }
 
 const manejarExito = () => {
@@ -215,4 +255,3 @@ const manejarExito = () => {
 const manejarError = () => {
     alert("Los datos ingresados no son válidos");
 };
-
