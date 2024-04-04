@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="./../css/style.css">
+        <script src="./../js/sesion.js"></script>
         <title>Sobre nosotros</title>
     </head>
     <body>
@@ -11,7 +12,7 @@
         <header>
 
             <h1>Árbol de Seda</h1>
-            <label id="etiquetaBotonMenu" for="botonMenu"><img src="./../img/menu.png" alt="menu"></label>
+            <label id="etiquetaBotonMenu" for="botonMenu"><img src="img/menu.png" alt="menu"></label>
             <input type="checkbox" id="botonMenu">
             
             <nav class="menu">    
@@ -19,10 +20,10 @@
                     <li>
                         <a href="./../index.html">Inicio</a>
                     </li>
-                    <li>
+                    <li class="soloSinSession">
                         <a href="./../html/inicioSesion.html">Inicio de sesión</a>
                     </li>
-                    <li>
+                    <li class="soloParaSesion">
                         <a href="./../html/agendarCita.html">Agenda de citas</a>
                     </li>
                     <li>
@@ -43,6 +44,9 @@
                     <li>
                         <a href="./../html/politicaDePrivacidad.html">Política de privacidad</a>
                     </li>
+                    <li class="soloParaSesion">
+                        <a onclick="cerrarSesion()">Cerrar Sesion</a>
+                    </li>
                 </ul>
             </nav>
 
@@ -50,17 +54,12 @@
 
         <main>
 
-            <div class="imagenConTitulo">
-                <h2>Sobre Nosotros</h2>
-                <figure>
-                    <img src="https://clinicacentrosa.co/wp-content/uploads/2023/05/DSC_5341-min-scaled.jpg" alt="clinica">
-                </figure>
-            </div>
-
             <div class="contenido">
 
                 <div class="articulo">
                     
+                    <h2>Sobre Nosotros</h2>
+                    <br>
                     <h4>Historia</h4>
                         <p>La Clínica Árbol de Seda abrió sus puertas al público en el año 2020. La clínica era un oasis de salud 
                             y bienestar en el corazón de la ciudad, un espacio donde los pacientes podían recibir atención médica 

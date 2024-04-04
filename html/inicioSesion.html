@@ -1,9 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="./../css/style.css">
+        <script src="./../js/usuario.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
         <title>Inicio de sesión</title>
     </head>
     <body>
@@ -20,7 +22,7 @@
                         <a href="./../index.html">Inicio</a>
                     </li>
                     <li>
-                        <a href="./../html/inicioSession.html">Inicio de sesión</a>
+                        <a href="./../html/inicioSesion.html">Inicio de sesión</a>
                     </li>
                     <li>
                         <a href="./../html/agendarCita.html">Agenda de citas</a>
@@ -59,23 +61,24 @@
 
                         <div class="campoFormulario">
                             <label for="id">Cédula de Identidad</label>
-                            <input id="id" type="text" required>
+                            <input id="id" type="text" maxlength="12" placeholder="##-####-####" required>
                         </div>
 
                         <div class="campoFormulario">
                             <label for="password">Contraseña</label>
-                            <input id="password" type="password" required>
+                            <input id="password" type="password" maxlength="11" required>
                         </div>
 
                         <div class="vinculosFormularios">
-                            <input id="iniciar" type="submit" value="Iniciar Session">
-                            <p>¿No tiene una cuenta? <a href="registro.html"> Registrar</a> </p>
+                            <input id="eviarDatosForm" type="submit" value="Iniciar Session">
+                            <a href="registro.html"> Registrar</a>
                         </div>
 
                     </form>
 
+                    <br>
                     <div class="vinculosFormularios">
-                        <p>¿Ha olvidado su contraseña? <a href="">Recuperar</a></p>
+                        <p>¿Ha olvidado su contraseña? <a href="recuperarContra.html">Recuperar</a></p>
                     </div>
 
                 </div>

@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="./../css/style.css">
+        <script src="./../js/sesion.js"></script>
         <title>Contacto</title>
     </head>
     <body>
@@ -11,7 +12,7 @@
         <header>
 
             <h1>Árbol de Seda</h1>
-            <label id="etiquetaBotonMenu" for="botonMenu"><img src="./../img/menu.png" alt="menu"></label>
+            <label id="etiquetaBotonMenu" for="botonMenu"><img src="img/menu.png" alt="menu"></label>
             <input type="checkbox" id="botonMenu">
             
             <nav class="menu">    
@@ -19,10 +20,10 @@
                     <li>
                         <a href="./../index.html">Inicio</a>
                     </li>
-                    <li>
+                    <li class="soloSinSession">
                         <a href="./../html/inicioSesion.html">Inicio de sesión</a>
                     </li>
-                    <li>
+                    <li class="soloParaSesion">
                         <a href="./../html/agendarCita.html">Agenda de citas</a>
                     </li>
                     <li>
@@ -42,6 +43,9 @@
                     </li>
                     <li>
                         <a href="./../html/politicaDePrivacidad.html">Política de privacidad</a>
+                    </li>
+                    <li class="soloParaSesion">
+                        <a onclick="cerrarSesion()">Cerrar Sesion</a>
                     </li>
                 </ul>
             </nav>
@@ -63,23 +67,26 @@
                             <b>San José</b>
                             <br>
                             Dirección: Avenida Central, Calle 17, San José, Costa Rica. 
-                            <a href="https://maps.app.goo.gl/mdhZMWCb77qspZvr7">Gooogle Maps</a>
                             <br>
                             Horario de atención: De lunes a viernes de 8:00 a.m. a 5:00 p.m. <br>
                             y sábados de 8:00 a.m. a 12:00 p.m.
                             <br>
                             Teléfono: +506 2222-2222
+                            <br>
+                            <iframe class="mapas" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d125759.09178753299!2d-84.1530639!3d9.9363194!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa0e362d8ce60c7%3A0x2152ed3bbadf05ab!2sCl%C3%ADnica%20Central!5e0!3m2!1ses!2scr!4v1711825292652!5m2!1ses!2scr" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
                         </p>
                         <br>
                         <p>
                             <b>Turrialba</b>
                             <br>
                             Dirección: Calle Real, Turrialba, Cartago, Costa Rica. 
-                            <a href="https://maps.app.goo.gl/ANoTzdTx8cpuYTLZ7">Gooogle Maps</a>
                             <br>
                             Horario de atención: De lunes a viernes de 8:00 a.m. a 5:00 p.m.
                             <br>
                             Teléfono: +506 2555-5555
+                            <br>
+                            <iframe class="mapas" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d125770.87879024664!2d-83.7680822!3d9.9056176!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa0d699a17db6df%3A0x7423b8411b261da8!2sCl%C3%ADnica%20Torrealba!5e0!3m2!1ses!2scr!4v1711825575598!5m2!1ses!2scr" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </p>
 
                     </div>
@@ -97,17 +104,17 @@
 
                         <div class="campoFormulario">
                             <label for="email">Correo electronico</label>
-                            <input id="email" type="email" required>
+                            <input id="email" type="email" placeholder="##@#####.###" required>
                         </div>
 
                         <div class="campoFormulario">
                             <label for="asunto">Asunto</label>
-                            <input id="asunto" type="text">
+                            <input id="asunto" type="text" placeholder="Motivo de la consulta">
                         </div>
 
                         <div class="campoFormulario">
                             <label for="informacionPregunta">Ingrese su consulta</label>
-                            <textarea id="informacionPregunta" cols="40" rows="20" re required></textarea>
+                            <textarea id="informacionPregunta" cols="40" rows="20" placeholder="Ingrese su consulta aqui" required></textarea>
                         </div>
 
                         <input id="enviarPregunta" type="submit" value="Enviar">

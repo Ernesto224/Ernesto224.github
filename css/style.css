@@ -5,6 +5,26 @@
     box-sizing: border-box;
 }
 
+/*etiquetas generales*/
+body{
+    display: flex;
+    flex-flow: column;
+}
+
+header{
+    background:#275167;
+}
+
+main{
+    min-height: 80vh;
+    background-color: #FFFFFF;
+}
+
+footer{
+    color: #FFFFFF;
+    background-color:#275167;
+}
+
 h1{
     text-align: center;
     font-size: 2.5em;
@@ -14,7 +34,9 @@ h1{
 h2{
     text-align: center;
     font-size: 2em;
-    color: #17303D;
+    color: #FFFFFF;
+    background-color: #17303D;
+    border-radius: 5px;
 }
 
 h3{
@@ -38,7 +60,6 @@ h5{
 
 .imagenConTitulo{
     width: 100%;
-    height: 100%;
     position: relative;
     margin-bottom: 2%;
 }
@@ -47,7 +68,6 @@ h5{
     width: 100%;
     height: 10em;
     object-fit: cover;
-    display: block;
     border: 5px solid #4893BC;
 }
 
@@ -61,16 +81,27 @@ h5{
     padding: 10px; /* Espacio alrededor del texto */
 }
 
-body{
-    margin: 0;
-    padding: 0;
-    display: block;
+.contenido{
+    width: 100%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    text-align: justify;
+    display: flex;
+    justify-content: center;
 }
 
-header{
-    width: 100%;
-    background:#275167;
+.articulo{
+    width: 60%;
+    font-size: large;
 }
+
+.articulo p{
+    width: 80%;
+    margin: 15px 10%;
+    padding: 0px 15px;
+    font-size: large;
+}
+/*fin etiquetas generales*/
 
 /*barra de menu*/
 #botonMenu{
@@ -83,15 +114,15 @@ header{
 
 #etiquetaBotonMenu{
     display: none;
-    width: 40px;
-    height: 40px;
-    padding: 5px;
+    width: 3em;
+    height: 3em;
+    padding: 0.5em;
     border-right: 1px solid #FFFFFF;
 }
 
 #etiquetaBotonMenu img{
-    width: 30px;
-    height: 30px;
+    width: 1.8em;
+    height: 1.8em;
 }
 
 .menu{
@@ -113,7 +144,9 @@ header label:hover{
 
 .menu li{
     flex-grow: 1;
+    text-align: center;
     border-top: 1px solid #F0D6EC;
+    border-right: 1px solid #F0D6EC;
 }
 
 .menu li:hover{
@@ -122,26 +155,20 @@ header label:hover{
 
 .menu li a{
     display: block;
-    padding: 15px 20px;
+    padding: 1em 2em;
     color: #31122C;
     text-decoration: none;
 }
 /*fin barra de menu*/
 
-main{
-    width: 100%;
-    min-height: 67.5vh;
-    display: block;
-    background-color: #FFFFFF;
-}
-
 /*Carrusel imagenes*/
 .contenidoCarrusel{
     width: 100%;
     position: relative;
+    background-color: #275167;
 }
 
-.prev, .next {
+.prev, .next{
     cursor: pointer;
     position: absolute;
     top: 50%;
@@ -165,15 +192,25 @@ main{
     border-radius: 0 3px 3px 0;
 }
   
-.prev:hover, .next:hover {
+.anterior, .siguiente{
+    cursor: pointer;
+    position: relative;
+    width: auto;
+    padding: 16px;
+    color: #31122C;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    user-select: none;
+}
+
+.prev:hover, .next:hover, .anterior:hover, .siguiente:hover {
     background-color: #275167;
 }
 
 .imagenCarrusel{
     text-align: center;
-    animation-name: fade;
-    animation-duration: 1s;
-    padding: 10px 0px;
+    animation: fade 1s;
 }
 
 .imagenCarrusel img{
@@ -183,7 +220,7 @@ main{
 }
 
 @keyframes fade {
-    from {opacity: 0.4}
+    from {opacity: 0.5}
     to {opacity: 1}
 }
 
@@ -191,7 +228,6 @@ main{
     color: #FFFFFF;
     font-size: 2.5em;
     position: relative;
-    background-color: #275167;
 }
 /*fin carrusel imagenes*/
 
@@ -202,10 +238,6 @@ main{
     height: 50vh;
     display: flex;
     justify-content: center;
-}
-
-.imagenAnimacion img{
-    margin: 15px 0;
 }
 
 #head {
@@ -224,14 +256,17 @@ main{
 
 @keyframes headAnimation {
     0% {
+        transform: translateX(3%);
         width: 18vw;
         height: 25vh;
     }
     50% {
+        transform: translateX(-3%);
         width: 20vw;
         height: 30vh;
     }
     100% {
+        transform: translateX(3%);
         width: 18vw;
         height: 25vh;
     }
@@ -258,12 +293,12 @@ main{
     width: 100%;
     max-width: 800px;
     margin: auto;
-    margin-top: 80px;
+    margin-top: 2%;
 }
 
 .acordion{
-    margin-top: 5%;
-    margin-bottom: 5%;
+    margin-top: 2%;
+    margin-bottom: 2%;
     background-color:#FFFFFF;
 }
 
@@ -311,24 +346,24 @@ main{
 .contenedorFormulario{
     width: 100%;
     display: flex;
-    padding: 45px;
+    padding: 5em;
     justify-content: center;
 }
 
 .formulario{
     width: 30%;
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 1.5em;
+    border-radius: 5px;
     background-color: #B1DCF4;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .formulario .campoFormulario{
-    padding: 10px;
-    margin: 8px 0;
+    padding: 1em;
+    margin: 1em 1em;
     display: flex;
     border: 1px solid #7e7e7e;
-    border-radius: 4px;
+    border-radius: 5px;
     box-sizing: border-box;
     text-align: left;
 }
@@ -339,13 +374,16 @@ main{
 }
 
 .formulario .campoFormulario input{
-    width: 40%;
+    width: 50%;
+    height: 2em;
     margin-right: 2%;
+    text-align: center;
 }
 
 .formulario #formulario #informacionPregunta{
     resize: none;
-    width: 70%;
+    width: 60%;
+    height: 20em;
 }
 
 .formulario input[type="submit"] {
@@ -359,6 +397,11 @@ main{
 
 .formulario input[type="submit"]:hover {
     background-color: #4893BC;
+}
+
+#noIguales{
+    display: none;
+    color: red;
 }
 
 .formulario .vinculosFormularios{
@@ -407,14 +450,65 @@ main{
 /*fin citas*/
 
 /*Buscar Medico*/
-.contenedorResultados{
-    width: 100%;
-    display: block;
+#informacionBusqueda{
+    width: 80%;
 }
 
-.list{
+#buscar{
+    padding: 1%;
+}
+
+.lista{
+    width: 60%;
     display: flex;
     justify-content: center;
+    border-radius: 5px;
+    background-color: #B1DCF4;
+}
+
+#informacionMedicos{
+    width: 100%;
+    height: 20em;
+    border-radius: 5px;
+    border-collapse: collapse;
+}
+
+#informacionMedicos th{
+    top: 0;
+    padding: 1%;
+    background-color: #58B4E7;
+}
+
+#informacionMedicos td {
+    text-align: center;
+    border: 1px solid #17303D;
+    width: 150px; /* Ancho fijo para las celdas */
+    max-width: 150px; /* Máxima anchura para las celdas */
+    white-space: nowrap; /* Evita que el texto se envuelva */
+    overflow: hidden; /* Oculta el contenido que excede el ancho máximo */
+    text-overflow: ellipsis; /* Agrega puntos suspensivos (...) para indicar contenido truncado */
+}
+
+.contenedorLista{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.contenedorBotones{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2%;
+}
+
+.botonesDesplazamiento{
+    width: 40%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    background-color: #9FD4F1;
+    border-radius: 5px;
 }
 /*fin buscarMedico*/
 
@@ -438,10 +532,6 @@ main{
     margin: auto;
 }
 
-.tablaCalendario thead{
-    border-bottom: 2px solid #17303D;
-}
-
 .tablaCalendario td{
     width: 70px;
     height: 70px;
@@ -458,27 +548,7 @@ main{
 }
 /*fin calendario*/
 
-.contenido{
-    width: 100%;
-    margin-top: 2%;
-    margin-bottom: 2%;
-    text-align: justify;
-    display: flex;
-    justify-content: center;
-}
-
-.articulo{
-    width: 60%;
-    font-size: large;
-}
-
-.articulo p{
-    width: 80%;
-    margin: 15px 10%;
-    padding: 0px 15px;
-    font-size: large;
-}
-
+/*Contacto*/
 #locales p{
     width: 60%;
     margin-left: 20%;
@@ -487,6 +557,17 @@ main{
     padding: 10px 60px;
 }
 
+
+.mapas{
+    width: 100%;
+    height: 30vh;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    border-radius: 5px;
+}
+/*fin contacto*/
+
+/*Terminos de privacidad*/
 .botonDescarga{
     display: block;
     margin-top: 20px;
@@ -507,11 +588,79 @@ main{
 .botonDescarga:hover a{
     background-color: #4893BC;
 }
+/*fin terminos*/
 
-footer{
-    width: 100%;
-    background-color:#275167;
+/*Ventana Modal*/
+.botonModal{
+    padding: 10px 15px;
+    background-color: #17303D;
+    color: #FFFFFF;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 300ms ease;
 }
+
+.botonModal:hover{
+    background-color: #58B4E7;
+} 
+
+#fondoModal{
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    align-items: center;
+    z-index: 100;
+    display: none;
+    justify-content: center;
+    background-color: rgba(144, 148, 150, 0.8);
+}
+
+#contenedorModal{
+    width: 60vw;
+    max-width: 400px;
+    max-height: 80vh;
+    overflow-x: scroll;
+    overflow-y: scroll;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: #FFFFFF;
+}
+
+.contenidoModal{
+    width: 100%;
+    padding: 20px;
+}
+
+.contenidoModal p{
+    padding: 15px 0px;
+    border-top: 1px solid #B1DCF4;
+    border-bottom: 1px solid #B1DCF4;
+}
+
+#btnCerrar{
+    margin-top: 15px;
+    display: flex;
+    justify-content: flex-end;
+    padding: 7px 10px;
+    background-color: red;
+    color: #FFFFFF;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 300ms ease;
+}
+
+#btnCerrar:hover{
+    background-color: #58B4E7;
+}
+/*fin ventana modal*/
+
+/*Inicio Sesion*/
+.soloParaSesion{
+    display: none;
+}
+/*fin inicio sesion*/
 
 /*Elementos footer*/
 footer .grupo1{
@@ -521,7 +670,7 @@ footer .grupo1{
     display: grid;
     grid-template-columns: repeat(2,1fr);
     grid-gap: 50px;
-    padding: 2em 0;
+    padding: 2em 1em;
 }
 
 footer .grupo1 .cajaFooter p{
@@ -552,11 +701,20 @@ footer .grupo2 small{
 /*fin elemento footer*/
 
 /*Ajustes responsive*/
-@media screen and (max-width:900px) {
-    .modal{
-        width: 90%;
+/*Principalmente tabletas*/
+@media screen and (max-width:1024px){
+
+    /*etiquetas generales*/
+    h2{
+        font-size: 2em;
     }
 
+    .articulo{
+        width: 86%;
+        font-size: large;
+    }
+
+    /*menu*/
     #etiquetaBotonMenu{
         display: block;
     }
@@ -577,6 +735,89 @@ footer .grupo2 small{
         border-top: 1px solid #FFFFFF;
     }
 
+    /*animacion*/
+    #head{
+        right: 30%;
+    }
+
+    #stethoscope {
+        left: 30%;
+    }
+ 
+    /*contacto*/
+    #locales p{
+        width: 90%;
+        margin-left: 5%;
+        padding: 10px 40px;
+    }
+
+    /*formularios*/
+    .formulario{
+        width: 70%;
+    }
+
+    /*preguntas frecuentes*/
+    .contenedorAcordion{
+        width: 60%;
+    }
+
+    /*tabla de busqueda*/
+    .lista{
+        width: 80%;
+    }
+
+    /*calendario*/
+    .calendario{
+        width: 80%;
+        padding: 20px 20px;
+    }
+
+    /*tarjetas de cita*/
+    .tarjeta {
+        width: calc(40% - 40px); /* Ajusta el ancho de las tarjetas para que ocupen todo el ancho en dispositivos pequeños */
+    }
+
+    /*modal*/
+    .modal{
+        width: 90%;
+    }
+}
+
+/*Principalmenete moviles*/
+@media screen and (max-width:760px) {
+
+    /*etiquetas generales*/
+    h2{
+        font-size: 1.5em;
+    }
+
+    .articulo{
+        width: 100%;
+        font-size: large;
+    }
+
+    /*menu*/
+    #etiquetaBotonMenu{
+        display: block;
+    }
+
+    .menu{
+        position: absolute;
+        background-color: #58B4E7;
+        width: 70%;
+        margin-left: -70%;
+        z-index: 2;
+    }
+
+    .menu ul{
+        flex-direction: column;
+    }
+
+    .menu li{
+        border-top: 1px solid #FFFFFF;
+    }
+
+    /*animacion*/
     #head{
         right: 15%;
     }
@@ -587,14 +828,17 @@ footer .grupo2 small{
     
     @keyframes headAnimation {
         0% {
+            transform: translateX(3%);
             width: 35vw;
             height: 25vh;
         }
         50% {
+            transform: translateX(-3%);
             width: 40vw;
             height: 30vh;
         }
         100% {
+            transform: translateX(3%);
             width: 35vw;
             height: 25vh;
         }
@@ -602,50 +846,72 @@ footer .grupo2 small{
 
     @keyframes stethoscopeAnimation {
         0% {
+            transform: translateX(-3%);
             width: 35vw;
             height: 30vh;
         }
         50% {
+            transform: translateX(3%);
             width: 40vw;
             height: 35vh;
         }
         100% {
+            transform: translateX(-3%);
             width: 35vw;
             height: 30vh;
         }
     }
 
-    .articulo{
-        width: 100%;
-        font-size: large;
-    }
-
+    /*contacto*/
     #locales p{
         width: 90%;
         margin-left: 5%;
         padding: 10px 40px;
     }
 
+    /*formularios*/
+    .contenedorFormulario{
+        padding: 5px;
+    }
+
+    .formulario{
+        width: 98%;
+    }
+
+    .formulario .campoFormulario{
+        padding: 0.5em;
+        margin: 1em 0px;
+    }
+
+
+    .formulario #formulario #informacionPregunta{
+        width: 80%;
+    }
+
+    /*preguntas frecuentes*/
     .contenedorAcordion{
         width: 90%;
     }
 
-    .contenedorFormulario{
-        padding: 20px;
+    /*tabla de busqueda*/
+    .lista{
+        width: 96%;
+        max-width: 200%;
+        overflow-x: auto;
+        font-size: 1em;
     }
-
-    .formulario{
+    
+    #informacionMedicos{
         width: 100%;
+        height: 20em;
+        font-size: 0.8em;
+    }
+    
+    #informacionMedicos th{
+        padding: 1em;
     }
 
-    .formulario #formulario #informacionPregunta{
-        width: 90%;
-    }
-
-    .tarjeta {
-        width: calc(50% - 40px); /* Ajusta el ancho de las tarjetas para que quepan dos en una fila en dispositivos medianos */
-    }
-
+    /*calendario*/
     .calendario{
         width: 90%;
         padding: 20px 20px;
@@ -660,11 +926,31 @@ footer .grupo2 small{
         width: 40px;
         height: 40px;
     }
-}   
 
-@media screen and (max-width: 576px) {
+    /*tarjetas de cita*/
     .tarjeta {
-        width: calc(100% - 40px); /* Ajusta el ancho de las tarjetas para que ocupen todo el ancho en dispositivos pequeños */
+        width: calc(80% - 40px); /* Ajusta el ancho de las tarjetas para que ocupen todo el ancho en dispositivos pequeños */
     }
-}
+
+    /*modal*/
+    #contenedorModal{
+        width: 80vw;
+        max-width: 400px;
+        max-height: 80vh;
+        overflow-x: scroll;
+        overflow-y: scroll;
+        padding: 20px;
+        border-radius: 5px;
+        background-color: #FFFFFF;
+    }
+
+    .modal{
+        width: 90%;
+    }
+
+    .botonModal{
+        font-size: 0.8em;
+        padding: 6px 6px;
+    }
+}   
 /*fin ajustes responsive*/

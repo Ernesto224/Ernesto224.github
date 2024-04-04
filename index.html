@@ -4,7 +4,8 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="css/style.css">
-        <script src="js/main.js"></script>
+        <script src="js/carrusel.js"></script>
+        <script src="js/sesion.js"></script>
         <title>Pagina de Inicio</title>
     </head>
     <body>
@@ -20,10 +21,10 @@
                     <li>
                         <a href="index.html">Inicio</a>
                     </li>
-                    <li>
+                    <li class="soloSinSession">
                         <a href="html/inicioSesion.html">Inicio de sesión</a>
                     </li>
-                    <li>
+                    <li class="soloParaSesion">
                         <a href="html/agendarCita.html">Agenda de citas</a>
                     </li>
                     <li>
@@ -43,6 +44,9 @@
                     </li>
                     <li>
                         <a href="html/politicaDePrivacidad.html">Política de privacidad</a>
+                    </li>
+                    <li class="soloParaSesion">
+                        <a onclick="cerrarSesion()">Cerrar Sesion</a>
                     </li>
                 </ul>
             </nav>
@@ -73,8 +77,17 @@
                     <div class="textoImagenCarrusel">Optometría</div>
                 </div>
 
-                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            </div>
+            
+            <div class="contenidoAnimacion">
+                
+                <div class="imagenAnimacion">
+                    <img src="img/corazon.png" alt="corazon" id="head">
+                </div>
+                
+                <div class="imagenAnimacion">
+                    <img src="img/estetoscipio.png" alt="estetoscipio" id="stethoscope">
+                </div>
 
             </div>
 
@@ -104,18 +117,6 @@
                         Confirme su cita.
                     </p>
 
-                </div>
-
-            </div>
-
-            <div class="contenidoAnimacion">
-                
-                <div class="imagenAnimacion">
-                    <img src="img/corazon.png" alt="corazon" id="head">
-                </div>
-                
-                <div class="imagenAnimacion">
-                    <img src="img/estetoscipio.png" alt="estetoscipio" id="stethoscope">
                 </div>
 
             </div>

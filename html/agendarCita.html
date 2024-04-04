@@ -4,8 +4,8 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="./../css/style.css">
-        <link rel="stylesheet" type="text/css" href="./../css/agendarCita.css">
-        <script src="./../js/citas.js"></script>
+        <script src="./../js/calendario.js"></script>
+        <script src="./../js/sesion.js"></script>
         <title>Agenda de citas</title>
     </head>
     <body>
@@ -13,7 +13,7 @@
         <header>
 
             <h1>Árbol de Seda</h1>
-            <label id="etiquetaBotonMenu" for="botonMenu"><img src="./../img/menu.png" alt="menu"></label>
+            <label id="etiquetaBotonMenu" for="botonMenu"><img src="img/menu.png" alt="menu"></label>
             <input type="checkbox" id="botonMenu">
             
             <nav class="menu">    
@@ -21,10 +21,10 @@
                     <li>
                         <a href="./../index.html">Inicio</a>
                     </li>
-                    <li>
+                    <li class="soloSinSession">
                         <a href="./../html/inicioSesion.html">Inicio de sesión</a>
                     </li>
-                    <li>
+                    <li class="soloParaSesion">
                         <a href="./../html/agendarCita.html">Agenda de citas</a>
                     </li>
                     <li>
@@ -44,6 +44,9 @@
                     </li>
                     <li>
                         <a href="./../html/politicaDePrivacidad.html">Política de privacidad</a>
+                    </li>
+                    <li class="soloParaSesion">
+                        <a onclick="cerrarSesion()">Cerrar Sesion</a>
                     </li>
                 </ul>
             </nav>

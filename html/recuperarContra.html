@@ -4,16 +4,15 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="./../css/style.css">
-        <script src="./../js/medico.js"></script>
-        <script src="./../js/sesion.js"></script>
-        <title>Búsqueda de médicos</title>
+        <script src="./../js/usuario.js"></script>
+        <title>Registrar</title>
     </head>
     <body>
        
         <header>
 
             <h1>Árbol de Seda</h1>
-            <label id="etiquetaBotonMenu" for="botonMenu"><img src="img/menu.png" alt="menu"></label>
+            <label id="etiquetaBotonMenu" for="botonMenu"><img src="./../img/menu.png" alt="menu"></label>
             <input type="checkbox" id="botonMenu">
             
             <nav class="menu">    
@@ -21,11 +20,8 @@
                     <li>
                         <a href="./../index.html">Inicio</a>
                     </li>
-                    <li class="soloSinSession">
+                    <li>
                         <a href="./../html/inicioSesion.html">Inicio de sesión</a>
-                    </li>
-                    <li class="soloParaSesion">
-                        <a href="./../html/agendarCita.html">Agenda de citas</a>
                     </li>
                     <li>
                         <a href="./../html/busquedaMedicos.html">Búsqueda de médicos</a>
@@ -45,9 +41,6 @@
                     <li>
                         <a href="./../html/politicaDePrivacidad.html">Política de privacidad</a>
                     </li>
-                    <li class="soloParaSesion">
-                        <a onclick="cerrarSesion()">Cerrar Sesion</a>
-                    </li>
                 </ul>
             </nav>
 
@@ -59,25 +52,19 @@
 
                 <div class="formulario">
 
-                    <h3>Buscar Medicos</h3>
+                    <h3>Recuperar Contraseña</h3>
                     <form id="formulario" method="post">
 
                         <div class="campoFormulario">
-                            <input id="informacionBusqueda" list="autocompletar" type="text">
-                            <datalist id="autocompletar">
-                                
-                            </datalist>
-                            <input id="buscar" type="submit" value="Buscar">
+                            <label for="email">Correo Electrónico</label>
+                            <input id="email" type="email" placeholder="##@#####.###" required>
                         </div>
 
-                        <div class="campoFormulario">
-                            <label for="tipoFiltro">Buscar por:</label>
-                            <select name="seleccion" id="tipoFiltro" required>
-                                <option value="nombre">Nombre</option>
-                                <option value="especialidad">Especializacion</option>
-                                <option value="ubicacion">Ubicación</option>
-                                <option value="identificacion">Identificación</option>
-                            </select>
+                        <div class="vinculosFormularios">
+                            <div class="botonDescarga">
+                                <a href="">Recuperar</a>
+                            </div>
+                            <a href="inicioSesion.html">Inicio Session</a>
                         </div>
 
                     </form>
@@ -85,54 +72,6 @@
                 </div>
                 
             </div>
-            
-          <div class="contenedorLista">
-
-                <div class="lista">
-
-                    <table id="informacionMedicos">
-
-                        <thead>
-                            <tr>
-                                <th>Nombre</th>
-                                <th>Especialidad</th>
-                                <th>Ubicación</th>
-                                <th>Identificación</th>
-                                <th>Perfil</th>
-                            </tr>
-                        </thead>
-
-                        <tbody id="información">
-
-                        </tbody>
-
-                    </table>  
-
-                </div>
-
-            </div>  
-
-            <div class="contenedorBotones">
-
-                <div class="botonesDesplazamiento">
-                    <a class="anterior" onclick="cargarPaginaAnterior()">&#10094;</a>
-                    <a class="siguiente" onclick="cargarPaginaSiguiente()">&#10095;</a>
-                </div>
-                
-           </div>
-
-           <div id="fondoModal">
-
-                <div id="contenedorModal">
-
-                    <div class="contenidoModal">
-                        
-                    </div>
-                    <button id="btnCerrar">Cerrar</button>
-                    
-                </div>
-
-           </div>
 
         </main>
 
