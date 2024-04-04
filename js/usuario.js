@@ -188,6 +188,9 @@ const guardarSesion = (usuario,valido) => {
 
 const verificarRegistrado = (usuarios, usuarioAValidar) => {
 
+    if (usuarios != null) return false;//valida la primera vez
+
+    //este for se utiliza para verificar si el usuario esta colocando una identificacion que ya existe
     for (let index = 0; index < usuarios.length; index++) {
         
         if (usuarios[index].userId === usuarioAValidar.userId) return true;
@@ -197,6 +200,7 @@ const verificarRegistrado = (usuarios, usuarioAValidar) => {
 
 const verificarContra = (usuarios, usuarioAValidar) => {
 
+    //a la hora de iniciar sesion se verifica que la contrasenia que ya exito
     for (let index = 0; index < usuarios.length; index++) {
         
         if (usuarios[index].userPassword === usuarioAValidar.userPassword) return usuarios[index];
