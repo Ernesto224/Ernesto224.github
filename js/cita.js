@@ -544,7 +544,7 @@ const verificaHorarios = (citaAVerificar) => {
         return true;
     }///se valida que no se agende una cita fuera del rango de trabajo
     
-    if (fechaCita.getDay() == 5 && (fechaCita.getHours() < 8 || fechaCita.getHours() >= 11)) {
+    if (fechaCita.getDay() == 5 && (fechaCita.getHours() < 8 || fechaCita.getHours() > 11)) {
         return true;
     }///se valida que no se agende una cita fuera del rango de trabajo
 
