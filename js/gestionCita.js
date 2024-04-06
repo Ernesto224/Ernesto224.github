@@ -114,67 +114,60 @@ const medicos = [
     }
 ]
 const citas = JSON.parse(localStorage.getItem("citasAgendadas")) ?? [];
-const usuarioAgendando = JSON.parse(sessionStorage.getItem("usuarioEnSesion"));
 
 document.addEventListener("DOMContentLoaded",() => {
     //visualizacion para el agendado de citas
-    const especialidad = document.getElementById("especializacion");
-    const medico = document.getElementById("medicosDisponibles");
-
-    especialidad.addEventListener("change",() => {
-     
-        const combo = document.getElementById("medicosDisponibles");
-        medicosDiponiblesParaCita(medicos, especialidad.value.trim(),combo);
-    })
-
-    
-    medico.addEventListener("click", () => {
-        
-        const combo = document.getElementById("citas");
-        cargarCitasDisponiblesParaElMedico(citas ,medico.value.trim() ,combo)
-    })
-
-    medicosDiponiblesParaCita(medicos, especialidad.value.trim(), document.getElementById("medicosDisponibles"));
+    const combo = document.getElementById("citas");
+    cargarCitasDisponiblesParaElMedico(citas, combo);
 })
-
 
 //metodos referentes al manejo de citas
 const cancelarCita = () => {
 
     const cita = document.getElementById("citas").value.trim();
-    const medico = document.getElementById("medicosDisponibles").value.trim();
-    const citaVisualizar = buscarCita(medico, cita);
+    const usuario = document.getElementById("citas").getAttribute("data-value");
+    const citaVisualizar = buscarCita(usuario, cita);
 
     if (citaVisualizar != null) {
 
         citaVisualizar.estado = "CA";
-
         guradarCambiosEnLaSesion();
+
+        const combo = document.getElementById("citas");
+        cargarCitasDisponiblesParaElMedico(citas, combo);
+
+        alert("eliminacion exitosa");
+    }else{
+        alert("eliminacion fallida")
     }
 }
 
 const aceptarCita = () =>{
 
     const cita = document.getElementById("citas").value.trim();
-    const medico = document.getElementById("medicosDisponibles").value.trim();
-    const citaVisualizar = buscarCita(medico, cita);
+    const usuario = document.getElementById("citas").getAttribute("data-value");
+    const citaVisualizar = buscarCita(usuario, cita);
     
     console.log(citaVisualizar)
     if (citaVisualizar != null) {
 
         citaVisualizar.estado = "AC";
-
         guradarCambiosEnLaSesion();
 
+        const combo = document.getElementById("citas");
+        cargarCitasDisponiblesParaElMedico(citas, combo);
+        alert("aceptacion exitosa");
+    }else{
+        alert("aceptacion fallida")
     }
 
 }
 
-const buscarCita = (medico, fechaCita) => {
+const buscarCita = (usuario, fechaCita) => {
 
     for (let index = 0; index < citas.length; index++) {
         
-        if (citas[index].medico === medico && citas[index].fecha === fechaCita) {
+        if (citas[index].usuario === usuario && citas[index].fecha === fechaCita) {
             return citas[index];
         }
         
@@ -186,30 +179,16 @@ const guradarCambiosEnLaSesion = () => {
     localStorage.setItem("citasAgendadas",JSON.stringify(citas));
 }
 
-const cargarCitasDisponiblesParaElMedico = (citas ,medico ,combo) => {
+const cargarCitasDisponiblesParaElMedico = (citas, combo) => {
 
     combo.innerHTML = "";//se limpia el contenido anterior
 
     citas.forEach(cita => {
 
-        if (cita.medico == medico && cita.estado == "AG") {
+        if (cita.estado == "AG") {
          
-            //se agragan las oppciones coincidentes
-            combo.innerHTML += `<option value=${cita.fecha}>${"Fecha = "+cita.fecha+" Hora = "+cita.hora+" Especialidad = "+cita.especialida}</option>`;
-        }
-    })
-}
-
-const medicosDiponiblesParaCita = (medicos, especialidadBuscada, combo) => {
-
-    combo.innerHTML = "";//se limpia el contenido anterior
-
-    medicos.forEach(medico => {
-        
-        if (medico.especialidad == especialidadBuscada) {
-         
-            //se agragan las oppciones coincidentes
-            combo.innerHTML += `<option value=${medico.identificacion}>${medico.nombre+" "+medico.apellidos}</option>`;
+            document.getElementById("citas").setAttribute("data-value",cita.usuario);
+            combo.innerHTML += `<option value=${cita.fecha}>${"Usuario = "+cita.usuario+" Fecha = "+cita.fecha}</option>`;
         }
     })
 }

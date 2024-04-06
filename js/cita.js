@@ -178,7 +178,8 @@ const agendarCita = () => {
     //se verifica que la cita exista
     //que esta no se repita y que la fecha sea valida
     //y que la hora este dentro del orario de trabajo de la clinica
-    if (cita != null && !verificarSolapamientoYSemanaLaboral(citas, cita)) {
+    if (cita != null && !verificarSolapamientoYSemanaLaboral(citas, cita)
+        && !verificaHorarios(cita)) {
         
         citas.push(cita);//se agrega la cita al arreglo
         guardarCambios();//se guardan los cambios en el local y session storage
@@ -220,7 +221,8 @@ const modificarCita = () =>{
     //se verifica que la cita exista
     //que esta no se repita y que la fecha sea valida
     //y que la hora este dentro del horario de trabajo de la clinica
-    if (cita != null && !verificarSolapamientoYSemanaLaboral(citas, cita)) {
+    if (cita != null && !verificarSolapamientoYSemanaLaboral(citas, cita)
+        && !verificaHorarios(cita)) {
 
         //se busca la cita en el arreglo para poder actualizar la 
         //informacion de citaRecuperada
@@ -382,12 +384,12 @@ const cargarDatosPerfil = (cita) => {
     contenidoModal.insertAdjacentHTML("afterbegin",`
         <h2>Informacion Cita</h2>
         <p> <b>Fecha: </b>${cita.fecha} 
-        <b>Hora: </b>${cita.hora} 
-        <br><b>Estado: </b>${cita.estado}<p/>
-        <p> <b>Medico: </b> ${"Dr. "+medico.nombre+" "+medico.apellidos} 
-        <b>Identificacion: </b> ${medico.identificacion}<p/>
-        <br><p> <b>Lugar: </b>${medico.ubicacion} 
-        <b>Especialidad: </b>${medico.especialidad}<p/>`);
+        <br><b>Hora: </b>${cita.hora} 
+        <br><b>Estado: </b>${cita.estado}
+        <br> <b>Medico: </b> ${"Dr. "+medico.nombre+" "+medico.apellidos} 
+        <br><b>Identificacion: </b> ${medico.identificacion}
+        <br><b>Lugar: </b>${medico.ubicacion} 
+        <br><b> Especialidad: </b>${medico.especialidad}<p/>`);
 
 
     //se carga una previu de los datos existentes del modal
@@ -414,7 +416,8 @@ const cargarDatosPerfil = (cita) => {
         const opcionSeleccionada = especialidad.querySelector(`option[value="${cita.especialidad}"]`);
         if (opcionSeleccionada) opcionSeleccionada.selected = true;
         //cargan las opciones de medicos disponibles para modificar la cita
-        const medicosDisponibles = document.getElementById("medicosCita");
+        const medicosDis = document.getElementById("medicosCita");
+        medicosDisponibles(medicos, especialidad.value.trim(), medicosDis)
     }else{
         formulario.style.display = "none"
     }
@@ -511,7 +514,7 @@ const verificarSolapamientoYSemanaLaboral = (citas, cita) => {
     for (let index = 0; index < citas.length; index++) {
         
         if (citas[index].usuario === cita.usuario 
-            && citas[index.fecha === cita.fecha]) {
+            && citas[index].fecha === cita.fecha) {
             
             return true;
         }
@@ -528,7 +531,7 @@ const verificarSolapamientoYSemanaLaboral = (citas, cita) => {
     return false;
 }
 
-const verificaHorariosTrabajoYCitas = (citaAVerificar) => {
+const verificaHorarios = (citaAVerificar) => {
 
     //crea un objeto date para poder manipular la hora 
     //de la cita
@@ -537,14 +540,14 @@ const verificaHorariosTrabajoYCitas = (citaAVerificar) => {
     fechaCita.setHours(parseInt(hora[0]));
     fechaCita.setMinutes(parseInt(hora[1]));
 
-    if (fechaCita.getHours() > 17 || fechaCita.getHours() < 8) {
+    if (fechaCita.getHours() > 16 || fechaCita.getHours() < 8) {
         return true;
     }///se valida que no se agende una cita fuera del rango de trabajo
     
-    if (fechaCita.getDay() == 5 && (fechaCita.getHours() > 12 || fechaCita.getHours() < 8)) {
+    if (fechaCita.getDay() == 5 && (fechaCita.getHours() < 8 || fechaCita.getHours() >= 11)) {
         return true;
     }///se valida que no se agende una cita fuera del rango de trabajo
-    console.log("esta1")
+
     return false;
 }
 

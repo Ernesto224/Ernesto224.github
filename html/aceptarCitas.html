@@ -12,44 +12,16 @@
         <header>
 
             <h1>Árbol de Seda</h1>
-            <label id="etiquetaBotonMenu" for="botonMenu"><img src="./../img/menu.png" alt="menu"></label>
-            <input type="checkbox" id="botonMenu">
-            
             <nav class="menu">    
                 <ul>
                     <li>
                         <a href="./../index.html">Inicio</a>
                     </li>
-                    <li class="soloSinSession">
-                        <a href="./../html/inicioSesion.html">Inicio de sesión</a>
-                    </li>
-                    <li class="soloParaSesion">
+                    <li>
                         <a href="./../html/agendarCita.html">Agenda de citas</a>
-                    </li>
-                    <li>
-                        <a href="./../html/busquedaMedicos.html">Búsqueda de médicos</a>
-                    </li>
-                    <li>
-                        <a href="./../html/servicios.html">Servicios</a>
-                    </li>
-                    <li>
-                        <a href="./../html/sobreNosotros.html">Sobre nosotros</a>
-                    </li>
-                    <li>
-                        <a href="./../html/infoContacto.html">Contacto</a>
-                    </li>
-                    <li>
-                        <a href="./../html/preguntasFrecuentes.html">Preguntas frecuentes</a>
-                    </li>
-                    <li>
-                        <a href="./../html/politicaDePrivacidad.html">Política de privacidad</a>
-                    </li>
-                    <li class="soloParaSesion">
-                        <a onclick="cerrarSesion()">Cerrar Sesion</a>
                     </li>
                 </ul>
             </nav>
-
         </header>
 
         <main>
@@ -60,24 +32,7 @@
 
                     <h3>Citas</h3>
                     <form id="formulario" method="post">
-
-                        <div class="campoFormulario">
-                            <label for="medicosDisponibles">Medico</label>
-                            <select name="medicos" id="medicosDisponibles" required>
-                                
-                            </select>
-                        </div>
-    
-                        <div class="campoFormulario">
-                            <label for="especializacion">Especializacion</label>
-                            <select name="especializacion" id="especializacion" required>
-                                <option value="Cardiología">Cardiologia</option>
-                                <option value="Odontología">Odontología</option>
-                                <option value="Dermatología">Dermatología</option>
-                                <option value="Optometría">Optometría</option>
-                            </select>
-                        </div>
-
+                        
                         <div class="campoFormulario">
                             <select name="medicos" id="citas" required>
                                 
