@@ -204,7 +204,7 @@ header label:hover{
         transform: scale(1); /* Escala normal */
       }
     50%{
-        transform: scale(1.1);
+        transform: scale(1.2);
     }
     100% {
     transform: scale(1); /* Escala aumentada */
@@ -367,6 +367,11 @@ header label:hover{
     display: flex;
     flex-wrap: wrap; /* Hace que las tarjetas se envuelvan cuando no haya suficiente espacio */
     justify-content: center;
+    margin-bottom: 2%;
+}
+
+.tarjetas .articulo{
+    text-align: center;
 }
 
 .tarjeta{
@@ -786,7 +791,7 @@ footer .grupo2 small{
     }
 
     .articulo{
-        width: 80%;
+        width: 90%;
         margin-top: 2em;
         font-size: large;
     }
@@ -844,6 +849,7 @@ footer .grupo2 small{
 
     .formulario #formulario #informacionPregunta{
         width: 80%;
+        height: 15em;
     }
 
     /*preguntas frecuentes*/
@@ -858,7 +864,7 @@ footer .grupo2 small{
     
     #informacionMedicos{
         width: 100%;
-        font-size: 0.9em;
+        font-size: 0.6em;
     }
     
     /*calendario*/
@@ -868,7 +874,7 @@ footer .grupo2 small{
 
     /*tarjetas de cita*/
     .tarjeta {
-        width: calc(80% - 40px); /* Ajusta el ancho de las tarjetas para que ocupen todo el ancho en dispositivos pequeños */
+        width: calc(86% - 40px); /* Ajusta el ancho de las tarjetas para que ocupen todo el ancho en dispositivos pequeños */
     }
 
     /*modal*/

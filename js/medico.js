@@ -15,7 +15,8 @@ const medicos = [
                 escribe:"Excelente medico muy profecional",
                 calificacion:5
             }
-        ]
+        ],
+        calificacionPro:4
     },
     {
         nombre: "Elena",
@@ -33,7 +34,8 @@ const medicos = [
                 escribe: "La Dra. Martínez es una excelente profesional, me ha ayudado mucho con mi problema de acné.",
                 calificacion: 5
             }
-        ]
+        ],
+        calificacionPro:3
     },
     {
         nombre: "Carlos",
@@ -51,7 +53,8 @@ const medicos = [
                 escribe: "El Dr. García es un médico muy atento y profesional, me ha ayudado mucho con mi problema cardíaco.",
                 calificacion: 5
             }
-        ]
+        ],
+        calificacionPro:1
     },
     {
         nombre: "Sofía",
@@ -69,7 +72,8 @@ const medicos = [
                 escribe: "La Dra. Pérez es una excelente profesional, me ha ayudado mucho con mi problema de visión.",
                 calificacion: 5
             }
-        ]
+        ],
+        calificacionPro:5
     },
     {
         nombre: "Ana",
@@ -92,7 +96,8 @@ const medicos = [
                 escribe: "La Dra. Pérez es una excelente profesional, me ha ayudado mucho con mi problema de visión.",
                 calificacion: 4
             }
-        ]
+        ],
+        calificacionPro:4.96
     },
     {
         nombre: "Carmen",
@@ -110,11 +115,13 @@ const medicos = [
                 escribe: "La Dra. Rodriguez es una excelente profesional, me ha ayudado mucho con mi problema de visión.",
                 calificacion: 5
             }
-        ]
+        ],
+        calificacionPro:5
     }
 ]
 var medicosOrdenadosYFiltrados = medicos;//se utiliza como intermediario para la informacion de medicos
 var filtrado = null;//tipo de filtro que se va a aplicar
+var ordenamiento = null;//tipo de oredenacion de la tabla
 var paginaActual = 1;//contador de pagina actual
 const filasPorPagina = 4;//cantidad de datos a mostar por pagina
 
@@ -153,8 +160,23 @@ document.addEventListener("DOMContentLoaded",() => {
 
         paginaActual = 1;//se restablece el indice de pagina
         
+        //se envian los datos para su carga
+        mostrarPagina(medicosOrdenadosYFiltrados, paginaActual);
+
+        autoCompletar(medicos,"")
+    })
+
+    //agrega un evento al combo de seleccion orden
+    const comboOrden = document.getElementById("tipoOrden"); 
+    comboOrden.addEventListener("change",() => {
+        
+        //se establece el nuevo tipo de filtro
+        ordenamiento = document.getElementById("tipoOrden").value.trim();
+
+        paginaActual = 1;//se restablece el indice de pagina
+        
         //se ordenan los datos en base al valor del filtro
-        medicosOrdenadosYFiltrados = ordenarMedicos(medicos);
+        medicosOrdenadosYFiltrados = ordenarMedicos(medicosOrdenadosYFiltrados);
         
         //se envian los datos para su carga
         mostrarPagina(medicosOrdenadosYFiltrados, paginaActual);
@@ -193,6 +215,7 @@ document.addEventListener("DOMContentLoaded",() => {
 
     //se despliega por primera vez la tabla de informacion
     filtrado = comboFiltro.value.trim();
+    ordenamiento = comboOrden.value.trim();
     ordenarMedicos(medicos);
     mostrarPagina(medicos, paginaActual);
 
@@ -242,6 +265,7 @@ const mostrarPagina = (medicos, pagina) => {
             <td>${medico.especialidad}</td>
             <td>${medico.ubicacion}</td>
             <td>${medico.identificacion}</td>
+            <td>${medico.calificacionPro}</td>
             <td> <button class="botonModal">${"Ver"}<button/> </td>
         `;
         cuerpo.appendChild(fila);//se agrega la informacion al cuerpo
@@ -271,12 +295,18 @@ const ordenarMedicos = (medicos) => {
     //utiliza una funcion personalizada para los criterios
     medicos.sort((a,b) => {
 
-        if (a[filtrado] > b[filtrado]) {
+        if (ordenamiento == "calificacionPro") {
+            let temp = b;
+            b = a;
+            a = temp;
+        }
+
+        if (a[ordenamiento] > b[ordenamiento]) {
             
             return 1;
         }
 
-        if (a[filtrado] < b[filtrado]){
+        if (a[ordenamiento] < b[ordenamiento]){
             
             return -1;
         }
