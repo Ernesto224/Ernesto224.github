@@ -35,7 +35,7 @@ h2{
     text-align: center;
     font-size: 2em;
     color: #FFFFFF;
-    background-color: #17303D;
+    background-color: #387292;
     border-radius: 5px;
 }
 
@@ -46,7 +46,7 @@ h3{
 }
 
 h4{
-    margin: 0 11%;
+    margin: 0 15px;
     text-align: left;
     font-size: 1.5em;
     color: #31122C;
@@ -56,29 +56,6 @@ h5{
     text-align: left;
     font-size: 1.5em;
     color: #31122C;
-}
-
-.imagenConTitulo{
-    width: 100%;
-    position: relative;
-    margin-bottom: 2%;
-}
-
-.imagenConTitulo img{
-    width: 100%;
-    height: 10em;
-    object-fit: cover;
-    border: 5px solid #4893BC;
-}
-
-.imagenConTitulo h2{
-    position: absolute; /* Establece el posicionamiento absoluto */
-    top: 50%; /* Coloca el h2 en la mitad superior del contenedor */
-    left: 50%; /* Coloca el h2 en la mitad izquierda del contenedor */
-    transform: translate(-50%, -50%); /* Centra el h2 horizontal y verticalmente */
-    color: #FFFFFF; /* Color del texto */
-    background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
-    padding: 10px; /* Espacio alrededor del texto */
 }
 
 .contenido{
@@ -92,14 +69,16 @@ h5{
 
 .articulo{
     width: 60%;
-    font-size: large;
+    font-size: 1em;
+    border: 2px solid #275167;
+    border-radius: 5px;
+    background-color: #B1DCF4;
 }
 
 .articulo p{
-    width: 80%;
-    margin: 15px 10%;
-    padding: 0px 15px;
-    font-size: large;
+    width: 100%;
+    padding: 15px 15px;
+    font-size: 1em;
 }
 /*fin etiquetas generales*/
 
@@ -167,30 +146,6 @@ header label:hover{
     position: relative;
     background-color: #275167;
 }
-
-.prev, .next{
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    width: auto;
-    margin-top: -22px;
-    padding: 16px;
-    color: #31122C;
-    font-weight: bold;
-    font-size: 18px;
-    transition: 0.6s ease;
-    user-select: none;
-}
-  
-.next {
-    right: 0;
-    border-radius: 3px 0 0 3px;
-}
-
-.prev{
-    left: 0;
-    border-radius: 0 3px 3px 0;
-}
   
 .anterior, .siguiente{
     cursor: pointer;
@@ -204,7 +159,7 @@ header label:hover{
     user-select: none;
 }
 
-.prev:hover, .next:hover, .anterior:hover, .siguiente:hover {
+.anterior:hover, .siguiente:hover {
     background-color: #275167;
 }
 
@@ -215,8 +170,7 @@ header label:hover{
 
 .imagenCarrusel img{
     width: 100%;
-    height: 30em;
-    object-fit: cover;
+    height: 40vh;
 }
 
 @keyframes fade {
@@ -233,7 +187,6 @@ header label:hover{
 
 /*animacion*/
 .contenidoAnimacion{
-    position: relative;
     width: 100%;
     height: 50vh;
     display: flex;
@@ -241,49 +194,20 @@ header label:hover{
 }
 
 #head {
-    bottom: 10%;
-    right: 35%;
-    position: absolute;
+    width: 100%;
+    height: 40vh;
     animation: headAnimation 2s infinite;
-}
-
-#stethoscope {
-    top: 10%;
-    left: 30%;
-    position: absolute;
-    animation: stethoscopeAnimation 2s infinite;
 }
 
 @keyframes headAnimation {
     0% {
-        transform: translateX(3%);
-        width: 18vw;
-        height: 25vh;
-    }
-    50% {
-        transform: translateX(-3%);
-        width: 20vw;
-        height: 30vh;
+        transform: scale(1); /* Escala normal */
+      }
+    50%{
+        transform: scale(1.1);
     }
     100% {
-        transform: translateX(3%);
-        width: 18vw;
-        height: 25vh;
-    }
-}
-
-@keyframes stethoscopeAnimation {
-    0% {
-        width: 20vw;
-        height: 30vh;
-    }
-    50% {
-        width: 25vw;
-        height: 35vh;
-    }
-    100% {
-        width: 20vw;
-        height: 30vh;
+    transform: scale(1); /* Escala aumentada */
     }
 }
 /*fin animacion*/
@@ -319,7 +243,6 @@ header label:hover{
 
 .acordion .contenidoAcordion{
     padding: 0px;
-    margin: 0px 20px;
     max-height: 0px;
     overflow: hidden;/*oculta a contenido*/
     transition: all 300ms ease;
@@ -329,7 +252,7 @@ header label:hover{
 }
 
 .acordion .contenidoAcordion p{
-    padding: 10px 20px;
+    padding: 10px 15px;
 }
 
 .botonAcordion{
@@ -346,7 +269,7 @@ header label:hover{
 .contenedorFormulario{
     width: 100%;
     display: flex;
-    padding: 5em;
+    padding: 2em;
     justify-content: center;
 }
 
@@ -355,6 +278,15 @@ header label:hover{
     padding: 1.5em;
     border-radius: 5px;
     background-color: #B1DCF4;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#formularioCitas{
+    width: 100%;
+    padding: 1em;
+    border-radius: 5px;
+    background-color: #B1DCF4;
+    display: block;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
@@ -378,6 +310,20 @@ header label:hover{
     height: 2em;
     margin-right: 2%;
     text-align: center;
+}
+
+#formularioCitas .campoFormulario input{
+    width: 100%;
+    height: 2em;
+}
+
+#formularioCitas .campoFormulario{
+    padding: 0.5em;
+    margin: 0.4em 1em;
+    display: flex;
+    border: 1px solid #7e7e7e;
+    border-radius: 5px;
+    box-sizing: border-box;
 }
 
 .formulario #formulario #informacionPregunta{
@@ -404,7 +350,7 @@ header label:hover{
     color: red;
 }
 
-.formulario .vinculosFormularios{
+.formulario .vinculosFormularios, #formularioCitas .vinculosFormularios{
     display: flex;
     margin-top: 2%;
     justify-content: space-between;
@@ -479,14 +425,12 @@ header label:hover{
     background-color: #58B4E7;
 }
 
-#informacionMedicos td {
+#informacionMedicos td{
     text-align: center;
     border: 1px solid #17303D;
     width: 150px; /* Ancho fijo para las celdas */
     max-width: 150px; /* Máxima anchura para las celdas */
-    white-space: nowrap; /* Evita que el texto se envuelva */
     overflow: hidden; /* Oculta el contenido que excede el ancho máximo */
-    text-overflow: ellipsis; /* Agrega puntos suspensivos (...) para indicar contenido truncado */
 }
 
 .contenedorLista{
@@ -521,62 +465,96 @@ header label:hover{
 }
 
 .calendario{
-    width: 40%;
+    width: 30%;
     padding: 2%;
     position: relative;
     background-color: #B1DCF4;
     border-radius: 5px;
 }
 
-.tablaCalendario{
+#tablaCalendario{
     margin: auto;
 }
 
-.tablaCalendario td{
-    width: 70px;
-    height: 70px;
+#tablaCalendario td{
+    width: 4em;
+    height: 4em;
     text-align: center;
     border: 1px solid #17303D;
+}
+
+#encabezadoCalendario{
+    width: 100%;
+    display: flex;
+    justify-content: right;
 }
 
 .contenedorCalendario td{
     cursor: pointer;
 }
 
-.tablaCalendario td:hover{
+#tablaCalendario td:hover{
     background-color: #4893BC;
 }
 
-.tablaCalendario .CA{
-    background-color: red;
+#tablaCalendario .CA{
+    background-color: crimson;
 }
 
-.tablaCalendario .AG{
+#tablaCalendario .AG{
     background-color: yellow;
 }
 
-.tablaCalendario .AC{
+#tablaCalendario .AC{
     background-color: #275167;
 }
 
-.tablaCalendario .mesAnterior,.tablaCalendario .siguienteMes{
+#tablaCalendario .hoy{
+    background-color: #58B4E7;
+}
+
+#tablaCalendario .mesAnterior,#tablaCalendario .siguienteMes{
     color: #7e7e7e;
 }
 
-.tablaCalendario .mesAnterior:hover, .tablaCalendario .siguienteMes:hover{
+#tablaCalendario .mesAnterior:hover, #tablaCalendario .siguienteMes:hover{
     background-color: #F0D6EC;
 }
 /*fin calendario*/
 
+/*Sobre nosostros*/
+.imagenConTitulo{
+    width: 100%;
+    position: relative;
+    margin-bottom: 2%;
+}
+
+.imagenConTitulo img{
+    width: 100%;
+    height: 10em;
+    object-fit: cover;
+    border: 5px solid #4893BC;
+}
+
+.imagenConTitulo h2{
+    position: absolute; /* Establece el posicionamiento absoluto */
+    top: 50%; /* Coloca el h2 en la mitad superior del contenedor */
+    left: 50%; /* Coloca el h2 en la mitad izquierda del contenedor */
+    transform: translate(-50%, -50%); /* Centra el h2 horizontal y verticalmente */
+    color: #FFFFFF; /* Color del texto */
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
+    padding: 10px; /* Espacio alrededor del texto */
+}
+/*fin sobre nosotros*/
+
 /*Contacto*/
 #locales p{
-    width: 60%;
+    width: 70%;
     margin-left: 20%;
     background-color: #B1DCF4;
     border-radius: 5px;
     padding: 10px 60px;
 }
-
 
 .mapas{
     width: 100%;
@@ -641,8 +619,8 @@ header label:hover{
     width: 60vw;
     max-width: 400px;
     max-height: 80vh;
-    overflow-x: scroll;
-    overflow-y: scroll;
+    overflow-x: auto;
+    overflow-y: auto;
     padding: 20px;
     border-radius: 5px;
     background-color: #FFFFFF;
@@ -730,7 +708,7 @@ footer .grupo2 small{
     }
 
     .articulo{
-        width: 86%;
+        width: 80%;
         font-size: large;
     }
 
@@ -754,16 +732,12 @@ footer .grupo2 small{
     .menu li{
         border-top: 1px solid #FFFFFF;
     }
-
-    /*animacion*/
-    #head{
-        right: 30%;
-    }
-
-    #stethoscope {
-        left: 30%;
-    }
  
+    /*formulario*/
+    #formularioCitas .campoFormulario input{
+        width: 100%;
+    }
+
     /*contacto*/
     #locales p{
         width: 90%;
@@ -812,7 +786,8 @@ footer .grupo2 small{
     }
 
     .articulo{
-        width: 100%;
+        width: 80%;
+        margin-top: 2em;
         font-size: large;
     }
 
@@ -838,55 +813,15 @@ footer .grupo2 small{
     }
 
     /*animacion*/
-    #head{
-        right: 15%;
-    }
-
-    #stethoscope {
-        left: 15%;
+    #head {
+        width: 15em;
+        height: 15em;
     }
     
-    @keyframes headAnimation {
-        0% {
-            transform: translateX(3%);
-            width: 35vw;
-            height: 25vh;
-        }
-        50% {
-            transform: translateX(-3%);
-            width: 40vw;
-            height: 30vh;
-        }
-        100% {
-            transform: translateX(3%);
-            width: 35vw;
-            height: 25vh;
-        }
-    }
-
-    @keyframes stethoscopeAnimation {
-        0% {
-            transform: translateX(-3%);
-            width: 35vw;
-            height: 30vh;
-        }
-        50% {
-            transform: translateX(3%);
-            width: 40vw;
-            height: 35vh;
-        }
-        100% {
-            transform: translateX(-3%);
-            width: 35vw;
-            height: 30vh;
-        }
-    }
-
     /*contacto*/
     #locales p{
-        width: 90%;
-        margin-left: 5%;
-        padding: 10px 40px;
+        width: 94%;
+        padding: 10px 10px;
     }
 
     /*formularios*/
@@ -903,6 +838,9 @@ footer .grupo2 small{
         margin: 1em 0px;
     }
 
+    #formularioCitas .campoFormulario input{
+        width: 100%;
+    }
 
     .formulario #formulario #informacionPregunta{
         width: 80%;
@@ -916,35 +854,16 @@ footer .grupo2 small{
     /*tabla de busqueda*/
     .lista{
         width: 96%;
-        max-width: 200%;
-        overflow-x: auto;
-        font-size: 1em;
     }
     
     #informacionMedicos{
         width: 100%;
-        height: 20em;
-        font-size: 0.8em;
+        font-size: 0.9em;
     }
     
-    #informacionMedicos th{
-        padding: 1em;
-    }
-
     /*calendario*/
     .calendario{
-        width: 90%;
-        padding: 20px 20px;
-    }
-
-    .tablaCalendario thead{
-        font-size: 0.5em;
-
-    }
-
-    .tablaCalendario td{
-        width: 40px;
-        height: 40px;
+        width: 96%;
     }
 
     /*tarjetas de cita*/

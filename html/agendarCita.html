@@ -4,8 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="./../css/style.css">
-        <script src="./../js/calendario.js"></script>
-        <script src="./../js/citas.js"></script>
+        <script src="./../js/cita.js"></script>
         <script src="./../js/sesion.js"></script>
         <title>Agenda de citas</title>
     </head>
@@ -14,6 +13,7 @@
         <header>
 
             <h1>Árbol de Seda</h1>
+            <h2 class="soloParaSesion">En linea</h2>
             <label id="etiquetaBotonMenu" for="botonMenu"><img src="./../img/menu.png" alt="menu"></label>
             <input type="checkbox" id="botonMenu">
             
@@ -60,7 +60,7 @@
 
                 <div class="formulario">
 
-                    <h3>Agendar Cita</h3>
+                    <h3>Citas</h3>
                     <form id="formulario" method="post">
 
                         <div class="campoFormulario">
@@ -96,9 +96,6 @@
                         <div class="botonDescarga">
                             <a id="agendar" onclick="agendarCita()">Agendar</a>
                         </div>
-                        <div class="botonDescarga">
-                            <a id="cancelar" onclick="cancelarCita()">Cancelar</a>
-                        </div>
                     </div>
 
                 </div>
@@ -109,12 +106,15 @@
 
                 <div class="calendario">
 
-                    <a class="prev" onclick="loadPrevMonth()">&#10094;</a>
-                    <h2>
-                        <h4 id="mes">Marzo</h4>
-                        <h4 id="anio">2024</h4>
-                    </h2>
-                    <table class="tablaCalendario">
+                    <h4 id="mes">Marzo</h4>
+                    <h4 id="anio">2024</h4>
+
+                    <div id="encabezadoCalendario">
+                        <a class="anterior" onclick="cargarMesAnterior()">&#10094;</a>
+                        <a class="siguiente" onclick="cargarMesSiguiente()">&#10095;</a>
+                    </div>
+                    
+                    <table id="tablaCalendario">
 
                         <thead>
                             <tr>
@@ -189,59 +189,59 @@
 
                             </tr>
                         </tbody>
-                    </table>
-                    <a class="next" onclick="loadNextMonth()">&#10095;</a>
-                </div>
-
-            </div>
-
-            <div class="contenedorLista">
-
-                <div class="lista">
-
-                    <table id="informacionMedicos">
-
-                        <thead>
-                            <tr>
-                                <th>Fecha</th>
-                                <th>Hora</th>
-                                <th>Medico</th>
-                                <th>Ubicación</th>
-                                <th>Especialidad</th>
-                                <th>Estado</th>
-                            </tr>
-                        </thead>
-
-                        <tbody id="información">
-
-                        </tbody>
-
                     </table>  
-
                 </div>
-
-            </div>  
-
-            <div class="contenedorBotones">
-
-                <div class="botonesDesplazamiento">
-                    <a class="anterior" onclick="cargarPaginaAnterior()">&#10094;</a>
-                    <a class="siguiente" onclick="cargarPaginaSiguiente()">&#10095;</a>
-                </div>
-                
-           </div>
+            </div>
 
            <div id="fondoModal">
 
                 <div id="contenedorModal">
 
                     <div class="contenidoModal">
-                        
                     </div>
-                    <button id="btnCerrar">Cerrar</button>
-                    
-                </div>
 
+                    <div id="formularioCitas">
+        
+                        <form id="formulario" method="post">
+    
+                            <div class="campoFormulario">
+                                <input id="diaCita" type="date" required>
+                            </div>
+    
+                            <div class="campoFormulario">
+                                <input id="horaCita" type="time" min="08:00" max="17:00" value="08:00" required>
+                            </div>
+    
+                            <div class="campoFormulario">
+                                <select name="medicos" id="medicosCita" required>
+                                    
+                                </select>
+                            </div>
+    
+                            <div class="campoFormulario">
+                                <select name="especializacion" id="especializacionCita" required>
+                                    <option value="Cardiología">Cardiologia</option>
+                                    <option value="Odontología">Odontología</option>
+                                    <option value="Dermatología">Dermatología</option>
+                                    <option value="Optometría">Optometría</option>
+                                </select>
+                            </div>
+    
+                        </form>
+    
+                        <div class="vinculosFormularios">
+                            <div class="botonDescarga">
+                                <a id="modificar" onclick="modificarCita()">Modificar</a>
+                            </div>
+                            <div class="botonDescarga">
+                                <a id="cancelar" onclick="cancelarCita()">Cancelar</a>
+                            </div>
+                        </div>
+    
+                    </div>
+                    
+                    <button id="btnCerrar">Cerrar</button>
+                </div>
             </div>
             
         </main>

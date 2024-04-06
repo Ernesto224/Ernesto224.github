@@ -113,24 +113,24 @@ const medicos = [
         ]
     }
 ]
-//se utiliza como intermediario entre los datos legitimos de los medicos
-var medicosOrdenadosYFiltrados = medicos;
-var filtrado = null;
-var paginaActual = 1;
-const filasPorPagina = 4;
+var medicosOrdenadosYFiltrados = medicos;//se utiliza como intermediario para la informacion de medicos
+var filtrado = null;//tipo de filtro que se va a aplicar
+var paginaActual = 1;//contador de pagina actual
+const filasPorPagina = 4;//cantidad de datos a mostar por pagina
 
 document.addEventListener("DOMContentLoaded",() => {
 
     //agrega un evento de escucha a el boton de busqueda
-    document.getElementById("formulario").addEventListener("submit",() => {
+    const formulario = document.getElementById("formulario");
+    formulario.addEventListener("submit",() => {
         
         event.preventDefault();//evita el refresco del formulario
- 
-        //se establece el nuevo tipo de filtro
-        filtrado = document.getElementById("tipoFiltro").value.trim();
 
         //se optiene el texto que se desea buscar
         const textoBusqueda = document.getElementById("informacionBusqueda").value.trim();
+ 
+        //se establece el nuevo tipo de filtro
+        filtrado = document.getElementById("tipoFiltro").value.trim();
 
         paginaActual = 1;//se restablece el indice de pagina
         
@@ -140,17 +140,16 @@ document.addEventListener("DOMContentLoaded",() => {
         //procede a hacerce la busqueda secuencial
         medicosOrdenadosYFiltrados = buscar(medicosOrdenadosYFiltrados, textoBusqueda);
         
-        //se envian los datos para su carga
+        //se envian los datos para su carga en el html
         mostrarPagina(medicosOrdenadosYFiltrados, paginaActual);
     })
 
-    document.getElementById("tipoFiltro").addEventListener("change",() => {
+    //agrega un evento al combo de seleccion filtrado
+    const comboFiltro = document.getElementById("tipoFiltro"); 
+    comboFiltro.addEventListener("change",() => {
         
         //se establece el nuevo tipo de filtro
         filtrado = document.getElementById("tipoFiltro").value.trim();
-
-        //se optiene el texto que se desea buscar
-        const textoBusqueda = document.getElementById("informacionBusqueda").value.trim();
 
         paginaActual = 1;//se restablece el indice de pagina
         
@@ -163,35 +162,37 @@ document.addEventListener("DOMContentLoaded",() => {
         autoCompletar(medicos,"")
     })
 
-    //crear botones Despliegue del modal
-    document.getElementById("informacionMedicos").addEventListener("click",(evento) => {
+    //se le asigna un evento a la tabla para desplegar el modal
+    const informacionMedicos = document.getElementById("informacionMedicos");
+    informacionMedicos.addEventListener("click",(evento) => {
 
-        evento.stopPropagation();//detinen la posibilidad de muchos eventos simultaneos
+        evento.stopPropagation();//detine la posibilidad de muchos eventos simultaneos
 
         if (evento.target.matches(".botonModal")) {
             //se optiene el componente padre td y luego el padre de este tr
-            //proporcionando acceso a todos sus child para poder recuperara la informacion a desplegar
+            //proporcionando acceso a todos sus hijos para poder recuperara la informacion a desplegar
             let datosMedico = evento.target.parentElement.parentElement.children;
             cargarDatosPerfil(datosMedico);//despliega el model y el perfil
         }//verifica que se haga clic sobre el boton de perfil y no sombre la tabla como tal
-
     })
 
-    //se le asigna un listener a el boton de cierre de la ventana
-    document.getElementById("btnCerrar").addEventListener("click",() => {
+    //se le asigna un evento al boton de cierre de la ventana modal
+    const cerrarModal = document.getElementById("btnCerrar");
+    cerrarModal.addEventListener("click",() => {
 
         cerrarModalPerfil();
     })
 
     //se le asigna un evento a la barra de busqueda para vez que se agregue un caracter
-    document.getElementById("informacionBusqueda").addEventListener("input",(evento) => {
+    const campoDeTexto = document.getElementById("informacionBusqueda");
+    campoDeTexto.addEventListener("input",(evento) => {
 
-        let textoEscrito = evento.target.value.trim();
-        autoCompletar(medicos,textoEscrito);
+        let textoEscrito = evento.target.value.trim();//se toma el valor del componente que desencadena el evento
+        autoCompletar(medicos,textoEscrito);//esto creara nuevas opciones de autocompletado
     })
 
     //se despliega por primera vez la tabla de informacion
-    filtrado = document.getElementById("tipoFiltro").value.trim();
+    filtrado = comboFiltro.value.trim();
     ordenarMedicos(medicos);
     mostrarPagina(medicos, paginaActual);
 
@@ -210,7 +211,7 @@ const buscar = (medicos, textoBusqueda) =>{
     for (let i = 0; i < medicos.length; i++) {
     
         let medico = medicos[i];
-        //se pregunta si el medicos en indice i su valor de filtrado
+        //se pregunta si el medicos en indice i incluyen su valor de filtrado en el texto
         //incluye el texto buscado
         if (medico[filtrado].toUpperCase().includes(textoBusqueda.toUpperCase())) {
             resultados.push(medico);//se agrega al arreglo de resultados
@@ -223,18 +224,18 @@ const buscar = (medicos, textoBusqueda) =>{
 //metodo que envia la lista de medicos a la interfaz
 const mostrarPagina = (medicos, pagina) => {
 
-    //se accede a la tabla de impormacion
+    //se accede al cuerpo de la tabla
     const cuerpo = document.getElementById("información");
     cuerpo.innerHTML = "";//se limpia el contenido anterior
-    //se calcula la seccion del arreglo que se va amostrar segun la pagina
+    //se calcula la seccion del arreglo que se va a mostrar segun la pagina
     const inicio = (pagina - 1) * filasPorPagina;
-    const fin = inicio + filasPorPagina;
+    const fin = inicio + filasPorPagina;//se establece el limite de informacion
     //se crea un arreglo que contendra la seccion cortada del arreglo principal
     const medicosPagina = medicos.slice(inicio, fin);
 
     medicosPagina.forEach(medico => {
         
-        //se crean todas las eqtiqquetas para llenar la tabla con los valores basicos
+        //se crean todas las eqtiquetas para llenar la tabla con los valores basicos
         const fila = document.createElement("tr");
         fila.innerHTML = `
             <td>${medico.nombre}</td>
@@ -243,9 +244,8 @@ const mostrarPagina = (medicos, pagina) => {
             <td>${medico.identificacion}</td>
             <td> <button class="botonModal">${"Ver"}<button/> </td>
         `;
-        cuerpo.appendChild(fila);
+        cuerpo.appendChild(fila);//se agrega la informacion al cuerpo
     });
-
 }
 
 //pasar la pagina de informacion
@@ -292,7 +292,8 @@ const ordenarMedicos = (medicos) => {
 const cargarDatosPerfil = (datosMedico) => {
 
     const modal = document.getElementById("fondoModal");//se optiene el componente modal
-    
+    const contenidoModal = modal.children[0].children[0];//se optiene la etiqueta donde se coloca el contenido
+
     let medico = null;
 
     for (let i = 0; i < medicos.length; i++) {
@@ -300,7 +301,7 @@ const cargarDatosPerfil = (datosMedico) => {
         medico = medicos[i];
 
         //se compara la identificacion para optener todo el objeto medico
-        //se utiliza la informacion por ser una clave unica
+        //se utiliza la identificacion por ser una clave unica
         if (medico["identificacion"] === datosMedico[3].textContent) {
             break;
         }
@@ -308,30 +309,26 @@ const cargarDatosPerfil = (datosMedico) => {
 
     medico.resenias.forEach(resenia => {
 
-        //se utiliza el metodo insertAdjacentHTML para colocar el html despues
-        //de la segunda etiqueta  
+        //se utiliza el metodo insertAdjacentHTML para colocar el html despues del componente padre
         modal.children[0].children[0].insertAdjacentHTML("afterbegin", `
-        <p>${resenia.correo}
-        <br> ${"Calificacion =" + resenia.calificacion}
-        <br>${resenia.escribe}<p/>
-        `);
+            <p>${resenia.correo}
+            <br> ${"Calificacion =" + resenia.calificacion}
+            <br>${resenia.escribe}<p/>`);
 
     });//primero se cargan todas las resenias
 
-    modal.children[0].children[0].insertAdjacentHTML("afterbegin", `<h3>${"Reseñas"}</h3><br>`);
+    contenidoModal.insertAdjacentHTML("afterbegin", `<h3>${"Reseñas"}</h3><br>`);
 
     //se insertan el resto de datos del medico
-    modal.children[0].children[0].insertAdjacentHTML("afterbegin",`
-            <h2>${"Dr. "+medico.nombre+" "+medico.apellidos}</h2>
-            <p>${medico.identificacion}<p/>
-            <p>${medico.especialidad}<p/>
-            <p>${medico.correo}<p/>
-            <p>${medico.ubicacion+"  "+medico.horarioConsulta}<p/>
-            <p>${medico.biografia}<p/>
-        `);
+    contenidoModal.insertAdjacentHTML("afterbegin",`
+        <h2>${"Dr. "+medico.nombre+" "+medico.apellidos}</h2>
+        <p>${medico.identificacion}<p/>
+        <p>${medico.especialidad}<p/>
+        <p>${medico.correo}<p/>
+        <p>${medico.ubicacion+"  "+medico.horarioConsulta}<p/>
+        <p>${medico.biografia}<p/>`);
 
-    modal.style.display = "flex";//se le quita la clase oculta para que esta sea visible
-
+    modal.style.display = "flex";//se le quita al modal el display para que sea visible
 }
 
 //cerrar perfil 
@@ -343,35 +340,38 @@ const cerrarModalPerfil = () => {
     //se limpia el contenido escrito en contenido modal
     modal.children[0].children[0].innerHTML = "";
 
-    //se utiliza la pripiedad css none para ocultar
+    //se utiliza la propiedad css none para ocultar el modal
     modal.style.display = "none";
 }
 
 //Cargar opciones de autocompletado
 const autoCompletar = (medicos, textoEscrito) => {
 
-    //localiza el datalist
-    const listaAutoCompletar = document.getElementById("autocompletar");
-    listaAutoCompletar.innerHTML = "";//se limpian las opciones de auto
+    if (textoEscrito !== "" && (textoEscrito.length > 1)) {//no se envian opciones de autocompletar si no hay texto
+        
+        //localiza el datalist
+        const listaAutoCompletar = document.getElementById("autocompletar");
+        listaAutoCompletar.innerHTML = "";//se limpian las opciones de autocompletar
 
-    const resultados = new Set();
+        const resultados = new Set();//se utiliza este objeto para no guardar opciones repetidas
 
-    //se realiza una busqueda de forma secuencial
-    for (let i = 0; i < medicos.length; i++) {
+        //se realiza una busqueda de forma secuencial
+        for (let i = 0; i < medicos.length; i++) {
 
-        //se verifica si el nombre de un medico contien los carateres
-        //colocados en la barra de busqueda
-        //valores se convierten a mayuscula para controlar el key sensitive del metodo includes
-        const medico = medicos[i];
-        if (medico[filtrado].toUpperCase().includes(textoEscrito.toUpperCase())) {
-            resultados.add(medico[filtrado]);//se agrega al arreglo de resultados
+            //se verifica si el nombre de un medico contien los carateres
+            //colocados en la barra de busqueda
+            //valores se convierten a mayuscula para controlar el key sensitive del metodo includes
+            const medico = medicos[i];
+            if (medico[filtrado].toUpperCase().includes(textoEscrito.toUpperCase())) {
+                resultados.add(medico[filtrado]);//se agrega al arreglo de resultados
+            }
         }
+
+        const coincidencias = Array.from(resultados);//se combierte el objeto resultados en una lista
+
+        //se agregan las opciones al componente html
+        coincidencias.forEach(opcion => {
+            listaAutoCompletar.innerHTML += `<option value = "${opcion}">${opcion}</option>`;//se envian las opciones de autocompletado encontradas
+        });
     }
-
-    const coincidencias = Array.from(resultados);//se combierte al objeto resultados en una lista
-
-    //se agregan las opciones al componente
-    coincidencias.forEach(opcion => {
-        listaAutoCompletar.innerHTML += `<option value = "${opcion}">${opcion}</option>`;//se envian las opciones de autocompletado encontradas
-    });
 }
